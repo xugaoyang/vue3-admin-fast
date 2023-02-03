@@ -16,7 +16,7 @@ vue3管理系统基础框架
 #### 2. 常用插件库
 1. 请求: `axios`
 2. 图表: `echarts`
-3. 实用工具库: `lodash`
+3. 实用工具库: `lodash`,`dayjs`
 
 #### 3. 规则插件
 1. 格式美化：`prettier`
