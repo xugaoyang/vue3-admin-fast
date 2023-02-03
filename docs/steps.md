@@ -4,17 +4,23 @@
 pnpm create vite my-vue-app --template vue-ts
 ```
 2. 添加UI框架,考虑引入方式
-```
+```bash
 pnpm install element-plus
 ```
 3. 改造初始化代码，添加路由和状态管理
-```
-pnpm install vue-router pinia pinia-plugin-persistedstate
-// 路由跳转效果
-pnpm install nprogress
+```bash
+pnpm install vue-router nprogress
+
+pnpm install pinia pinia-plugin-persistedstate
 ```
 
 4. 添加格式化和规则限制插件
+```bash
+// prettier
 
+// stylelint
+
+// gitcommit
+```
 
 5. 
