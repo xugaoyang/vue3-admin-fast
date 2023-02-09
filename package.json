@@ -8,7 +8,9 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
-    "prettier-format": "prettier --write \"src/**/*.ts\" \"src/**/*.vue\""
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.vue\"",
+    "lint:style": "stylelint \"./**/*.{css,scss,vue,html}\" --fix",
+    "prepare": "husky install"
   },
   "dependencies": {
     "element-plus": "^2.2.29",
@@ -20,6 +22,7 @@
   },
   "devDependencies": {
     "@types/node": "^18.13.0",
+    "@types/nprogress": "^0.2.0",
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.51.0",
     "@vitejs/plugin-vue": "^4.0.0",
@@ -27,6 +30,7 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.9.0",
+    "husky": "^8.0.3",
     "postcss": "^8.4.21",
     "postcss-html": "^1.5.0",
     "postcss-scss": "^4.0.6",

@@ -34,4 +34,10 @@ const date = ref('')
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+div {
+  height: 20px;
+  width: 100px;
+  position: relative;
+}
+</style>

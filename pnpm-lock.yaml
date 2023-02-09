@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@types/node': ^18.13.0
+  '@types/nprogress': ^0.2.0
   '@typescript-eslint/eslint-plugin': ^5.51.0
   '@typescript-eslint/parser': ^5.51.0
   '@vitejs/plugin-vue': ^4.0.0
@@ -10,6 +11,7 @@ specifiers:
   eslint-config-prettier: ^8.6.0
   eslint-plugin-prettier: ^4.2.1
   eslint-plugin-vue: ^9.9.0
+  husky: ^8.0.3
   nprogress: ^0.2.0
   pinia: ^2.0.30
   pinia-plugin-persistedstate: ^3.0.2
@@ -43,6 +45,7 @@ dependencies:
 
 devDependencies:
   '@types/node': 18.13.0
+  '@types/nprogress': 0.2.0
   '@typescript-eslint/eslint-plugin': 5.51.0_b635kmla6dsb4frxfihkw4m47e
   '@typescript-eslint/parser': 5.51.0_4vsywjlpuriuw3tl5oq6zy5a64
   '@vitejs/plugin-vue': 4.0.0_vite@4.1.1+vue@3.2.47
@@ -50,6 +53,7 @@ devDependencies:
   eslint-config-prettier: 8.6.0_eslint@8.33.0
   eslint-plugin-prettier: 4.2.1_qa2thblfovmfepmgrc7z2owbo4
   eslint-plugin-vue: 9.9.0_eslint@8.33.0
+  husky: 8.0.3
   postcss: 8.4.21
   postcss-html: 1.5.0
   postcss-scss: 4.0.6_postcss@8.4.21
@@ -652,6 +656,10 @@ packages:
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
+    dev: true
+
+  /@types/nprogress/0.2.0:
+    resolution: {integrity: sha512-1cYJrqq9GezNFPsWTZpFut/d4CjpZqA0vhqDUPFWYKF1oIyBz5qnoYMzR+0C/T96t3ebLAC1SSnwrVOm5/j74A==}
     dev: true
 
   /@types/parse-json/4.0.0:
@@ -2357,6 +2365,12 @@ packages:
       domhandler: 5.0.3
       domutils: 3.0.1
       entities: 4.4.0
+    dev: true
+
+  /husky/8.0.3:
+    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /ignore/4.0.6:
