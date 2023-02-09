@@ -40,11 +40,12 @@ pnpm add eslint-config-prettier eslint-plugin-prettier -D
 // stylelint
 pnpm add postcss postcss-scss postcss-html stylelint stylelint-config-prettier stylelint-config-rational-order stylelint-config-standard stylelint-config-recommended-vue stylelint-config-recommended-scss stylelint-order -D
 
-
-// husky+lintstaged
+// husky
 pnpm add husky -D
 
 // gitcommit
+pnpm add commitizen cz-customizable -D
+
 ```
 
 6. 添加工具库
