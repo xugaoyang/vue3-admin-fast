@@ -9,7 +9,7 @@ export const useMainStore = defineStore('mainStore', {
     return {
       user: {},
       theme: 'white',
-      locale: 'zhCn'
+      locale: 'zhCn',
     }
   },
   getters: {

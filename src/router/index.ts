@@ -5,16 +5,20 @@ import 'nprogress/nprogress.css'
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: () => import(/* webpackChunkName: 'home' */ '../views/Home.vue'),
+    name: 'test',
+    component: () =>
+      import(/* webpackChunkName: 'home' */ '../views/FeatureTest.vue'),
     meta: {
-      title: 'home',
+      title: 'test',
     },
   },
   {
     path: '/helloworld',
     name: 'helloworld',
-    component: () => import(/* webpackChunkName: 'helloworld' */ '../components/Helloworld.vue'),
+    component: () =>
+      import(
+        /* webpackChunkName: 'helloworld' */ '../components/Helloworld.vue'
+      ),
     meta: {
       title: 'helloworld',
     },
@@ -33,7 +37,5 @@ router.beforeEach((to, from, next) => {
   next()
   NProgress.done()
 })
-
-
 
 export default router
