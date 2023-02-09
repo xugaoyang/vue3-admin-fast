@@ -16,7 +16,7 @@ const date = ref('')
 </script>
 
 <template>
-  <div class="p-20px">
+  <div class="feature p-20px">
     <h3 class="text-24px">功能调试页</h3>
     <el-divider />
     <router-link :to="'/helloworld'">页面跳转</router-link>
@@ -35,9 +35,7 @@ const date = ref('')
 </template>
 
 <style scoped lang="scss">
-div {
-  height: 20px;
-  width: 100px;
-  position: relative;
+.feature {
+  background: #fff;
 }
 </style>
