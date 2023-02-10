@@ -55,7 +55,7 @@ pnpm i axios
 // lodash
 pnpm i lodash
 // dayjs
-pnpm i vueuse
+pnpm i dayjs
 // echart
 pnpm i echart
 // vueuse

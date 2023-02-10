@@ -4,7 +4,7 @@
 2. vite 不能使用 require 来引用静态资源
 3. eslint 初始化之后报错`error  Parsing error: '>' expected`,参考[vue3+ts+vite 项目中使用 eslint+prettier+stylelint+husky 指南](https://juejin.cn/post/7118294114734440455)
 4. `cz-customizable`在`type:module`使用问题，参考[issue#199](https://github.com/leoforfree/cz-customizable/issues/199)
-
+5. element-plus输入框focus会出现多余边框？windicss样式覆盖了。。
 
 #### ts 报错
 

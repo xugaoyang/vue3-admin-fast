@@ -2,9 +2,10 @@ import { createApp } from 'vue'
 import router from './router'
 import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+import 'virtual:windi.css'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-import 'virtual:windi.css'
+
 import App from './App.vue'
 
 const app = createApp(App)
