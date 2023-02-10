@@ -21,6 +21,7 @@ module.exports = {
     confirmCommit: '确定提交说明?',
   },
   allowCustomScopes: true,
+  skipQuestions: ['body', 'footer'],
   allowBreakingChanges: ['特性', '修复'],
   // limit subject length
   subjectLimit: 100,
