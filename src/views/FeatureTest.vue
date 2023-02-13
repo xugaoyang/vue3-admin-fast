@@ -3,8 +3,27 @@ import { ref, reactive } from 'vue'
 import type { FormInstance, FormRules } from 'element-plus'
 import { useMainStore } from '../store'
 import { storeToRefs } from 'pinia'
+import { useDark, useToggle } from '@vueuse/core'
+
 const mainStore = useMainStore()
-const { locale } = storeToRefs(mainStore)
+
+const isDark = useDark({
+  // valueDark: 'dark',
+  // valueLight: 'light',
+  onChanged(dark: boolean) {
+    const htmlEle = document.querySelector('html')
+    if (dark) {
+      mainStore.changeLocale('dark')
+      htmlEle?.setAttribute('class', 'dark')
+    } else {
+      mainStore.changeLocale('light')
+      htmlEle?.setAttribute('class', 'light')
+    }
+  },
+})
+const toggleDark = useToggle(isDark)
+
+const { locale, theme } = storeToRefs(mainStore)
 const changeLocale = () => {
   console.log(locale.value)
   if (locale.value !== 'en') {
@@ -13,6 +32,16 @@ const changeLocale = () => {
     mainStore.changeLocale('zhCn')
   }
 }
+
+const changeTheme = () => {
+  console.log(theme.value)
+  if (theme.value !== 'light') {
+    mainStore.changeLocale('dark')
+  } else {
+    mainStore.changeLocale('light')
+  }
+}
+
 const date = ref('')
 // -------------------------------------
 const formSize = ref('default')
@@ -185,6 +214,10 @@ const value = ref([])
     <el-row class="pb-20px"
       ><el-date-picker v-model="date" type="date" placeholder="Pick a day"
     /></el-row>
+    <el-divider />
+    <el-row class="pb-20px">
+      <el-button type="primary" @click="toggleDark()">changeTheme</el-button>
+    </el-row>
     <el-divider />
     <h3 class="text-22px pb-10px">按钮</h3>
     <el-row class="mb-4">

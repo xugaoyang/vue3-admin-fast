@@ -22,6 +22,7 @@
     }
   },
   "dependencies": {
+    "@vueuse/core": "^9.12.0",
     "element-plus": "^2.2.29",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.30",

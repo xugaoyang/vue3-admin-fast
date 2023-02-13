@@ -5,6 +5,7 @@ import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import 'virtual:windi.css'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+import './styles/index.scss'
 
 import App from './App.vue'
 

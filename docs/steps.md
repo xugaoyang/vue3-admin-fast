@@ -66,3 +66,6 @@ pnpm i vueuse
 
 
 8. 主题切换
+
+9. axios配置
+
