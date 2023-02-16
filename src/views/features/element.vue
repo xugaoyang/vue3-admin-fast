@@ -13,10 +13,10 @@ const isDark = useDark({
   onChanged(dark: boolean) {
     const htmlEle = document.querySelector('html')
     if (dark) {
-      mainStore.changeLocale('dark')
+      mainStore.changeTheme('dark')
       htmlEle?.setAttribute('class', 'dark')
     } else {
-      mainStore.changeLocale('light')
+      mainStore.changeTheme('light')
       htmlEle?.setAttribute('class', 'light')
     }
   },
