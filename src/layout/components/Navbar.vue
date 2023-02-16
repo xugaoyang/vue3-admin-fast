@@ -53,11 +53,11 @@ const avatarUrl = ref(
           :active-icon="Moon"
           :inactive-icon="Sunny"
         />
-        <span>
-          <el-avatar :size="20" :src="avatarUrl" />
+        <span class="pl-5px flex items-center">
+          <el-avatar class="mr-5px" :size="20" :src="avatarUrl" />
           admin
         </span>
-        <el-icon class="cursor-pointer" @click="openSettingPanel()"
+        <el-icon class="cursor-pointer pl-5px" @click="openSettingPanel()"
           ><Setting
         /></el-icon>
       </div>
