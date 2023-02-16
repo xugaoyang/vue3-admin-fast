@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { useSettingStore } from '../store/setting'
+
 import sidebar from './components/SidebarMenu.vue'
-import logo from './components/Logo.vue'
 import navbar from './components/Navbar.vue'
 import tagView from './components/TagView.vue'
-const sideWidth = ref('200px')
-const hasSide = ref(true) // true：菜单栏在侧边 false：菜单栏在header
+
+const settingStore = useSettingStore()
+const sideWidth = computed(() => settingStore.getSideWidth)
+const hasSide = computed(() => settingStore.layoutSideStatus)
 const changeSidebar = () => {
-  hasSide.value = !hasSide.value
+  settingStore.changeLayoutSideStatus(!hasSide.value)
 }
 </script>
 

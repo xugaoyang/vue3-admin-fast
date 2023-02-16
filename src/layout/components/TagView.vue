@@ -22,11 +22,16 @@ const tags = ref([
   { name: 'Tag 18', type: 'info' },
   { name: 'Tag 19', type: 'info' },
   { name: 'Tag 20', type: 'info' },
+  { name: 'Tag 21', type: 'info' },
+  { name: 'Tag 22', type: 'info' },
+  { name: 'Tag 23', type: 'info' },
+  { name: 'Tag 24', type: 'info' },
+  { name: 'Tag 25', type: 'info' },
 ])
 </script>
 
 <template>
-  <div class="flex items-center">
+  <div class="flex items-center justify-between">
     <el-scrollbar>
       <el-tag
         v-for="tag in tags"

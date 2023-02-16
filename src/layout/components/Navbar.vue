@@ -1,7 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useSettingStore } from '../../store/setting'
+import { Setting } from '@element-plus/icons-vue'
 import appLogo from './AppLogo.vue'
-const logoWidth = ref('200px')
+import setting from './Setting.vue'
+
+const settingStore = useSettingStore()
+const logoWidth = computed(() => settingStore.getSideWidth)
+const openSettingPanel = () => {
+  settingStore.changeSettingPanelStatus(true)
+}
 </script>
 
 <template>
@@ -16,8 +24,14 @@ const logoWidth = ref('200px')
         <el-breadcrumb-item>promotion list</el-breadcrumb-item>
         <el-breadcrumb-item>promotion detail</el-breadcrumb-item>
       </el-breadcrumb>
-      <div>admin</div>
+      <div class="flex items-center">
+        <span>admin</span>
+        <el-icon class="cursor-pointer" @click="openSettingPanel()"
+          ><Setting
+        /></el-icon>
+      </div>
     </div>
+    <setting />
   </div>
 </template>
 
