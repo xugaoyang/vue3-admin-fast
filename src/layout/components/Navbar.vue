@@ -31,6 +31,10 @@ const openSettingPanel = () => {
 const avatarUrl = ref(
   'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
 )
+
+const localeChange = (val: string) => {
+  mainStore.changeLocale(val)
+}
 </script>
 
 <template>
@@ -53,6 +57,17 @@ const avatarUrl = ref(
           :active-icon="Moon"
           :inactive-icon="Sunny"
         />
+        <el-dropdown @command="localeChange">
+          <span>
+            <img src="../../assets/i18n.svg" alt="" style="height: 26px" />
+          </span>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item command="zhCn">中文</el-dropdown-item>
+              <el-dropdown-item command="en">en</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
         <span class="pl-5px flex items-center">
           <el-avatar class="mr-5px" :size="20" :src="avatarUrl" />
           admin
