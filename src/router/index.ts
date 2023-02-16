@@ -5,11 +5,11 @@ import 'nprogress/nprogress.css'
 const routes = [
   {
     path: '/',
-    name: 'test',
+    name: 'element-test',
     component: () =>
-      import(/* webpackChunkName: 'home' */ '../views/FeatureTest.vue'),
+      import(/* webpackChunkName: 'home' */ '../views/features/element.vue'),
     meta: {
-      title: 'test',
+      title: 'element-test',
     },
   },
   {
@@ -17,10 +17,19 @@ const routes = [
     name: 'helloworld',
     component: () =>
       import(
-        /* webpackChunkName: 'helloworld' */ '../components/Helloworld.vue'
+        /* webpackChunkName: 'helloworld' */ '../views/features/HelloWorld.vue'
       ),
     meta: {
       title: 'helloworld',
+    },
+  },
+  {
+    path: '/layout',
+    name: 'layout',
+    component: () =>
+      import(/* webpackChunkName: 'layout' */ '../layout/index.vue'),
+    meta: {
+      title: 'layout',
     },
   },
 ]

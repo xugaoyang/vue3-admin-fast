@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 import type { FormInstance, FormRules } from 'element-plus'
-import { useMainStore } from '../store'
+import { useMainStore } from '../../store'
 import { storeToRefs } from 'pinia'
 import { useDark, useToggle } from '@vueuse/core'
 

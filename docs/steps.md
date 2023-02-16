@@ -59,7 +59,7 @@ pnpm i dayjs
 // echart
 pnpm i echart
 // vueuse
-pnpm i vueuse
+pnpm i @vueuse/core
 ```
 
 7. type补充
@@ -67,5 +67,14 @@ pnpm i vueuse
 
 8. 主题切换
 
-9. axios配置
+9. 布局
+  - [ ] 导航栏：navbar
+  - [ ] logo: logo
+  - [ ] 标签导航: tagview
+  - [ ] 侧边菜单：sidebarmenu
+  - [ ] 全局配置：setting
 
+
+1.  多布局
+
+2.  axios配置

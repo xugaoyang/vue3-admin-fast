@@ -27,6 +27,9 @@
   ],
   "rules": {
     "number-leading-zero": "always",
+    "selector-class-pattern": null,
+    "selector-id-pattern": null,
+    "no-empty-source": null,
     "order/properties-order": [
       "position",
       "top",
