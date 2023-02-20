@@ -12,7 +12,6 @@
   justify-content: center;
   align-items: center;
   height: 50px;
-  background-color: #545c64;
 
   .logo {
     height: 40px;

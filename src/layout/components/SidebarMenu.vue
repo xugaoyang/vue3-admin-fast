@@ -32,11 +32,7 @@ console.log('数据处理', menus)
 </script>
 
 <template>
-  <el-menu
-    background-color="#545c64"
-    text-color="#fff"
-    active-text-color="#ffd04b"
-  >
+  <el-menu>
     <sidebar-item
       v-for="menu in menus"
       :key="menu.id"

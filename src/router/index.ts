@@ -30,8 +30,8 @@ const routes = [
         meta: { title: '官网demo' },
       },
       {
-        path: 'element-test',
-        name: 'element-test',
+        path: 'element-plus',
+        name: 'element-plus',
         component: () =>
           import(
             /* webpackChunkName: 'home' */ '../views/features/element.vue'

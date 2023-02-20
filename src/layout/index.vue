@@ -43,7 +43,7 @@ const hasSide = computed(() => settingStore.layoutSideStatus)
 
 .sidebar-wrapper {
   height: 100%;
-  background-color: #545c64;
+  border-right: 1px solid #eee;
 }
 
 .el-main {
