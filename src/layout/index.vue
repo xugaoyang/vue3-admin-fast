@@ -9,9 +9,6 @@ import tagView from './components/TagView.vue'
 const settingStore = useSettingStore()
 const sideWidth = computed(() => settingStore.getSideWidth)
 const hasSide = computed(() => settingStore.layoutSideStatus)
-const changeSidebar = () => {
-  settingStore.changeLayoutSideStatus(!hasSide.value)
-}
 </script>
 
 <template>
@@ -23,10 +20,8 @@ const changeSidebar = () => {
       </el-aside>
       <el-main
         ><div class="h-30px"><tag-view /></div>
-        <div>
-          <el-button @click="changeSidebar">切换侧边栏</el-button>
-        </div></el-main
-      >
+        <router-view></router-view>
+      </el-main>
     </el-container>
   </el-container>
 </template>

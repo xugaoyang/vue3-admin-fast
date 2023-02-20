@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@element-plus/icons-vue': ^2.0.10
+  '@types/lodash-es': ^4.17.6
   '@types/node': ^18.13.0
   '@types/nprogress': ^0.2.0
   '@typescript-eslint/eslint-plugin': ^5.51.0
@@ -16,6 +17,7 @@ specifiers:
   eslint-plugin-prettier: ^4.2.1
   eslint-plugin-vue: ^9.9.0
   husky: ^8.0.3
+  lodash-es: ^4.17.21
   nprogress: ^0.2.0
   pinia: ^2.0.30
   pinia-plugin-persistedstate: ^3.0.2
@@ -43,6 +45,7 @@ dependencies:
   '@element-plus/icons-vue': 2.0.10_vue@3.2.47
   '@vueuse/core': 9.12.0_vue@3.2.47
   element-plus: 2.2.29_vue@3.2.47
+  lodash-es: 4.17.21
   nprogress: 0.2.0
   pinia: 2.0.30_hmuptsblhheur2tugfgucj7gc4
   pinia-plugin-persistedstate: 3.0.2_pinia@2.0.30
@@ -50,6 +53,7 @@ dependencies:
   vue-router: 4.1.6_vue@3.2.47
 
 devDependencies:
+  '@types/lodash-es': 4.17.6
   '@types/node': 18.13.0
   '@types/nprogress': 0.2.0
   '@typescript-eslint/eslint-plugin': 5.51.0_b635kmla6dsb4frxfihkw4m47e
@@ -741,11 +745,9 @@ packages:
     resolution: {integrity: sha512-R+zTeVUKDdfoRxpAryaQNRKk3105Rrgx2CFRClIgRGaqDTdjsm8h6IYA8ir584W3ePzkZfst5xIgDwYrlh9HLg==}
     dependencies:
       '@types/lodash': 4.14.191
-    dev: false
 
   /@types/lodash/4.14.191:
     resolution: {integrity: sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==}
-    dev: false
 
   /@types/minimatch/5.1.2:
     resolution: {integrity: sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==}

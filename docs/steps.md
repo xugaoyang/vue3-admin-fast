@@ -53,7 +53,7 @@ pnpm add commitizen cz-customizable -D
 // axios
 pnpm i axios
 // lodash
-pnpm i lodash
+pnpm i lodash-es
 // dayjs
 pnpm i dayjs
 // echart
@@ -67,7 +67,7 @@ pnpm i @vueuse/core
 
 8. 主题切换
 
-9. 布局
+9. layout组件
   - [ ] 导航栏：navbar
   - [ ] logo: logo
   - [ ] 标签导航: tagview

@@ -9,6 +9,10 @@ const handleClose = done => {
   settingStore.changeSettingPanelStatus(false)
   console.log(settingPanelShow)
 }
+const hasSide = computed(() => settingStore.layoutSideStatus)
+const changeSidebar = () => {
+  settingStore.changeLayoutSideStatus(!hasSide.value)
+}
 </script>
 
 <template>
@@ -19,5 +23,8 @@ const handleClose = done => {
     :before-close="handleClose"
   >
     <span>Hi, there!</span>
+    <div>
+      <el-button @click="changeSidebar">切换侧边栏</el-button>
+    </div>
   </el-drawer>
 </template>
