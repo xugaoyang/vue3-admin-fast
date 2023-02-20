@@ -13,7 +13,15 @@ const routes = [
       title: '布局',
     },
   },
-
+  {
+    path: '/fullpage',
+    name: 'fullpage',
+    component: () =>
+      import(/* webpackChunkName: 'layout' */ '../views/Fullpage.vue'),
+    meta: {
+      title: '全屏界面',
+    },
+  },
   {
     path: '/feature',
     name: 'feature',
@@ -34,7 +42,7 @@ const routes = [
         name: 'element-plus',
         component: () =>
           import(
-            /* webpackChunkName: 'home' */ '../views/features/element.vue'
+            /* webpackChunkName: 'home' */ '../views/features/ElementPlus.vue'
           ),
         meta: {
           title: 'element-plus',

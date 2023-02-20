@@ -15,9 +15,4 @@ const { locale } = storeToRefs(mainStore)
   </el-config-provider>
 </template>
 
-<style scoped>
-#nprogress .bar {
-  height: 4px !important;
-  background: purple !important;
-}
-</style>
+<style scoped></style>
