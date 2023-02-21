@@ -63,18 +63,27 @@ pnpm i @vueuse/core
 ```
 
 7. type补充
-
+```
+pnpm add -D @types/xxx
+```
 
 8. 主题切换
+- [x] 使用useDark钩子来进行普通黑白皮肤的切换
+- [ ] 使用配置项自定义皮肤
+
 
 9. layout组件
   - [ ] 导航栏：navbar
-  - [ ] logo: logo
+  - [x] logo: logo
   - [ ] 标签导航: tagview
-  - [ ] 侧边菜单：sidebarmenu
+  - [x] 侧边菜单：sidebarmenu【TODO:路由切换，递归的数据有问题】
   - [ ] 全局配置：setting
 
 
-1.  多布局
+10.  多布局
+  - [ ] 侧边菜单
+  - [ ] 顶部菜单，无侧边栏
 
-2.  axios配置
+11.  axios配置
+
+

@@ -1,8 +1,13 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { routes as routeData } from '../../router'
-import { forEach, isEmpty, has } from 'lodash-es'
+import { forEach, isEmpty, has, startsWith } from 'lodash-es'
 import sidebarItem from './SidebarItem.vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+console.log(router.options)
 
 console.log('路由源数据', routeData)
 
@@ -16,10 +21,12 @@ const recursionRoutes = routes => {
     if (!has(route, 'children')) {
       route.children = []
     }
-    delete route.component
     if (!isEmpty(route.children)) {
       forEach(route.children, child => {
-        child.path = `${route.path}/${child.path}`
+        // fixed: 当侧边栏重新渲染时，children里面的path会一直拼接，做一层判断
+        child.path = startsWith(child.path, '/')
+          ? child.path
+          : `${route.path}/${child.path}`
       })
       recursionRoutes(route.children)
     }
