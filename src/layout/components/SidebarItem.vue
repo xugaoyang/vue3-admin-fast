@@ -24,8 +24,8 @@ const menuClicked = data => {
       :model="item"
     ></SidebarItem>
   </el-sub-menu>
-  <el-menu-item v-else :index="model.path">
+  <el-menu-item v-else :index="model.path" @click="menuClicked(model)">
     <el-icon><HomeFilled /></el-icon>
-    <span @click="menuClicked(model)">{{ model.meta.title }}</span>
+    <span>{{ model.meta.title }}</span>
   </el-menu-item>
 </template>
