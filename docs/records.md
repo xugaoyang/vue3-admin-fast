@@ -1,9 +1,9 @@
 #### 问题记录
 
-1. storeToRefs 解构出来的值，不能直接在 js 使用，也需要加上`.value`
+1. storeToRefs 解构出来的值，不能直接在 js 使用,也需要加上`.value`
 2. vite 不能使用 require 来引用静态资源
 3. eslint 初始化之后报错`error  Parsing error: '>' expected`,参考[vue3+ts+vite 项目中使用 eslint+prettier+stylelint+husky 指南](https://juejin.cn/post/7118294114734440455)
-4. `cz-customizable`在`type:module`使用问题，参考[issue#199](https://github.com/leoforfree/cz-customizable/issues/199)
+4. `cz-customizable`在`type:module`使用问题,参考[issue#199](https://github.com/leoforfree/cz-customizable/issues/199)
 5. element-plus输入框focus会出现多余边框？windicss样式覆盖了。。`windicss关闭预检有效`
 ```ts
 import { defineConfig } from 'vite-plugin-windicss'
@@ -12,6 +12,10 @@ export default defineConfig({
   preflight: false,
 })
 ```
+
+6. `pinia`在非组件使用,会报错pinia未注册的错误，参考[pinia官方文档](https://pinia.web3doc.top/core-concepts/outside-component-usage.html)
+
+
 #### ts 报错
 
 1. `Don't use `{}`as a type.`{}` actually means "any non-nullish value".`

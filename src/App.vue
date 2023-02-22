@@ -2,11 +2,11 @@
 import { ElConfigProvider } from 'element-plus'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import en from 'element-plus/dist/locale/en.mjs'
-import { useMainStore } from './store'
+import { useSystemStore } from './store/modules/system'
 import { storeToRefs } from 'pinia'
 
-const mainStore = useMainStore()
-const { locale } = storeToRefs(mainStore)
+const SystemStore = useSystemStore()
+const { locale } = storeToRefs(SystemStore)
 </script>
 
 <template>

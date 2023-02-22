@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { useSettingStore } from '../../store/setting'
+import { useSettingStore } from '../../store/modules/setting'
 const settingStore = useSettingStore()
 const settingPanelShow = computed(() => settingStore.settingPanelStatus)
 const direction = ref('rtl')
 console.log(settingPanelShow)
-const handleClose = done => {
+const handleClose = () => {
   settingStore.changeSettingPanelStatus(false)
   console.log(settingPanelShow)
 }

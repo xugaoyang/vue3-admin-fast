@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
 import { useRouter } from 'vue-router'
+import { HomeFilled } from '@element-plus/icons-vue'
 
 const router = useRouter()
 const props = defineProps(['model'])
@@ -14,6 +15,7 @@ const menuClicked = data => {
 <template>
   <el-sub-menu v-if="model.children.length" :index="model.path">
     <template #title>
+      <el-icon><HomeFilled /></el-icon>
       <span>{{ model.meta.title }}</span>
     </template>
     <SidebarItem
@@ -23,6 +25,7 @@ const menuClicked = data => {
     ></SidebarItem>
   </el-sub-menu>
   <el-menu-item v-else :index="model.path">
+    <el-icon><HomeFilled /></el-icon>
     <span @click="menuClicked(model)">{{ model.meta.title }}</span>
   </el-menu-item>
 </template>

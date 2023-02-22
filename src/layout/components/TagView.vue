@@ -1,33 +1,22 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { FullScreen, ArrowDown } from '@element-plus/icons-vue'
-const tags = ref([
-  { name: 'Tag 1', type: 'info' },
-  { name: 'Tag 2', type: 'info' },
-  { name: 'Tag 3', type: 'info' },
-  { name: 'Tag 4', type: 'info' },
-  { name: 'Tag 5', type: 'info' },
-  { name: 'Tag 6', type: 'info' },
-  { name: 'Tag 7', type: 'info' },
-  { name: 'Tag 8', type: 'info' },
-  { name: 'Tag 9', type: 'info' },
-  { name: 'Tag 10', type: 'info' },
-  { name: 'Tag 11', type: 'info' },
-  { name: 'Tag 12', type: 'info' },
-  { name: 'Tag 13', type: 'info' },
-  { name: 'Tag 14', type: 'info' },
-  { name: 'Tag 15', type: 'info' },
-  { name: 'Tag 16', type: 'info' },
-  { name: 'Tag 17', type: 'info' },
-  { name: 'Tag 18', type: 'info' },
-  { name: 'Tag 19', type: 'info' },
-  { name: 'Tag 20', type: 'info' },
-  { name: 'Tag 21', type: 'info' },
-  { name: 'Tag 22', type: 'info' },
-  { name: 'Tag 23', type: 'info' },
-  { name: 'Tag 24', type: 'info' },
-  { name: 'Tag 25', type: 'info' },
-])
+import { useRouteStore } from '../../store/modules/route'
+import { storeToRefs } from 'pinia'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const routeStore = useRouteStore()
+const { tags } = storeToRefs(routeStore)
+const tagClick = tag => {
+  console.log(tag)
+  router.push(tag.fullPath)
+}
+const tagClose = tag => {
+  console.log(tag)
+  routeStore.deleteTag(tag)
+}
 </script>
 
 <template>
@@ -35,12 +24,13 @@ const tags = ref([
     <el-scrollbar>
       <el-tag
         v-for="tag in tags"
-        :key="tag.name"
+        :key="tag"
         class="mx-1"
         closable
-        :type="tag.type"
+        @click="tagClick(tag)"
+        @close="tagClose(tag)"
       >
-        {{ tag.name }}
+        {{ tag.showName }}
       </el-tag>
     </el-scrollbar>
     <div class="extend-btns">

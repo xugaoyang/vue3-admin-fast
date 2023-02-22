@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { useSettingStore } from '../store/setting'
+import { useSettingStore } from '../store/modules/setting'
 
 import sidebar from './components/SidebarMenu.vue'
 import navbar from './components/Navbar.vue'

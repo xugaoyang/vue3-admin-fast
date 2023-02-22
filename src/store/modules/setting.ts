@@ -10,6 +10,7 @@ export const useSettingStore = defineStore('settingStore', {
       layoutHasSide: true,
       settingPanelShow: false,
       sideWidth: '200px',
+      isMenuCollapse: false,
     }
   },
   getters: {
@@ -22,6 +23,9 @@ export const useSettingStore = defineStore('settingStore', {
     getSideWidth(state) {
       return state.sideWidth
     },
+    getMenuCollapse(state) {
+      return state.isMenuCollapse
+    },
   },
   actions: {
     changeLayoutSideStatus(data: boolean) {
@@ -29,6 +33,12 @@ export const useSettingStore = defineStore('settingStore', {
     },
     changeSettingPanelStatus(data: boolean) {
       this.settingPanelShow = data
+    },
+    changeMenuCollapse(data: boolean) {
+      this.isMenuCollapse = data
+    },
+    changeSideWidth(data: string) {
+      this.sideWidth = data
     },
   },
 })

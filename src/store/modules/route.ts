@@ -1,4 +1,15 @@
 import { defineStore } from 'pinia'
+import { reject } from 'lodash-es'
+
+interface Tag {
+  path: string
+  showName: string
+  name: string
+  fullPath: string
+  meta: object
+  params: object
+  query: object
+}
 
 export const useRouteStore = defineStore('RouteStore', {
   persist: {
@@ -24,10 +35,16 @@ export const useRouteStore = defineStore('RouteStore', {
     },
   },
   actions: {
-    changeTags(data) {
-      // 操作tags
+    addTag(data: Tag) {
+      this.tags.push(data)
     },
-    changeMenu(data) {
+    deleteTag(data: Tag) {
+      this.tags = reject(this.tags, ['fullPath', data.fullPath])
+    },
+    changeCurrentTag(data: Tag) {
+      this.currentTag = data
+    },
+    changeMenu(data: []) {
       this.menu = data
     },
   },

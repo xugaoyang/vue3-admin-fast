@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { useMainStore } from '../../store'
-import { useSettingStore } from '../../store/setting'
-import { Setting, Sunny, Moon } from '@element-plus/icons-vue'
+import { useSystemStore } from '../../store/modules/system'
+import { useSettingStore } from '../../store/modules/setting'
+import { Setting, Sunny, Moon, Fold, Expand } from '@element-plus/icons-vue'
 import appLogo from './AppLogo.vue'
 import setting from './Setting.vue'
 import { useDark, useToggle } from '@vueuse/core'
+import { storeToRefs } from 'pinia'
 
-const mainStore = useMainStore()
+const mainStore = useSystemStore()
 const settingStore = useSettingStore()
+const { isMenuCollapse } = storeToRefs(settingStore)
 const isDark = useDark({
   onChanged(dark: boolean) {
     console.log(dark)
@@ -35,54 +37,59 @@ const avatarUrl = ref(
 const localeChange = (val: string) => {
   mainStore.changeLocale(val)
 }
+
+const changeMenuCollapse = () => {
+  console.log(isMenuCollapse.value)
+  settingStore.changeMenuCollapse(!isMenuCollapse.value)
+  settingStore.changeSideWidth(isMenuCollapse.value ? '64px' : '200px')
+}
 </script>
 
 <template>
   <div class="flex justify-between items-center">
-    <app-logo :style="`width: ${logoWidth}`" />
-    <div class="flex justify-between items-center header-right">
+    <div class="flex justify-around items-center">
+      <app-logo :style="`width: ${logoWidth}`" />
+      <el-icon
+        class="cursor-pointer pl-5px pr-5px"
+        @click="changeMenuCollapse()"
+        ><Fold v-if="!isMenuCollapse" /> <Expand v-else
+      /></el-icon>
       <el-breadcrumb separator="/" class="pl-10px">
         <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
         <el-breadcrumb-item
           ><a href="/">promotion management</a></el-breadcrumb-item
         >
-        <el-breadcrumb-item>promotion list</el-breadcrumb-item>
-        <el-breadcrumb-item>promotion detail</el-breadcrumb-item>
       </el-breadcrumb>
-      <div class="flex justify-around items-center">
-        <el-switch
-          @change="toggleDark"
-          v-model="currentTheme"
-          inline-prompt
-          :active-icon="Moon"
-          :inactive-icon="Sunny"
-        />
-        <el-dropdown @command="localeChange">
-          <span>
-            <img src="../../assets/i18n.svg" alt="" style="height: 26px" />
-          </span>
-          <template #dropdown>
-            <el-dropdown-menu>
-              <el-dropdown-item command="zhCn">中文</el-dropdown-item>
-              <el-dropdown-item command="en">en</el-dropdown-item>
-            </el-dropdown-menu>
-          </template>
-        </el-dropdown>
-        <span class="pl-5px flex items-center">
-          <el-avatar class="mr-5px" :size="20" :src="avatarUrl" />
-          admin
+    </div>
+    <div class="flex justify-around items-center">
+      <el-switch
+        @change="toggleDark"
+        v-model="currentTheme"
+        inline-prompt
+        :active-icon="Moon"
+        :inactive-icon="Sunny"
+      />
+      <el-dropdown @command="localeChange">
+        <span>
+          <img src="../../assets/i18n.svg" alt="" style="height: 26px" />
         </span>
-        <el-icon class="cursor-pointer pl-5px" @click="openSettingPanel()"
-          ><Setting
-        /></el-icon>
-      </div>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item command="zhCn">中文</el-dropdown-item>
+            <el-dropdown-item command="en">en</el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+      <span class="pl-5px flex items-center">
+        <el-avatar class="mr-5px" :size="20" :src="avatarUrl" />
+        admin
+      </span>
+      <el-icon class="cursor-pointer pl-5px" @click="openSettingPanel()"
+        ><Setting
+      /></el-icon>
     </div>
     <setting />
   </div>
 </template>
 
-<style scoped lang="scss">
-.header-right {
-  width: calc(100% - 200px);
-}
-</style>
+<style scoped lang="scss"></style>

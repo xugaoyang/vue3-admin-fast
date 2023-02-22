@@ -4,6 +4,11 @@ import { routes as routeData } from '../../router'
 import { forEach, isEmpty, has, startsWith } from 'lodash-es'
 import sidebarItem from './SidebarItem.vue'
 import { useRouter } from 'vue-router'
+import { useSettingStore } from '../../store/modules/setting'
+import { storeToRefs } from 'pinia'
+
+const settingStore = useSettingStore()
+const { isMenuCollapse } = storeToRefs(settingStore)
 
 const router = useRouter()
 
@@ -21,6 +26,7 @@ const recursionRoutes = routes => {
     if (!has(route, 'children')) {
       route.children = []
     }
+    delete route.component
     if (!isEmpty(route.children)) {
       forEach(route.children, child => {
         // fixed: 当侧边栏重新渲染时，children里面的path会一直拼接，做一层判断
@@ -39,7 +45,7 @@ console.log('数据处理', menus)
 </script>
 
 <template>
-  <el-menu>
+  <el-menu :collapse="isMenuCollapse">
     <sidebar-item
       v-for="menu in menus"
       :key="menu.id"
