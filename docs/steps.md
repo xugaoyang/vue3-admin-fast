@@ -75,7 +75,7 @@ pnpm add -D @types/xxx
 9. layout组件
   - [ ] 导航栏：navbar
   - [x] logo: logo
-  - [ ] 标签导航: tagview
+  - [x] 标签导航: tagview
   - [x] 侧边菜单：sidebarmenu
   - [ ] 全局配置：setting
     - [ ] layout布局【1. 侧边菜单；2. 顶部菜单】

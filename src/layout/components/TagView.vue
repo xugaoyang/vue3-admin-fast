@@ -8,7 +8,7 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 const routeStore = useRouteStore()
-const { tags } = storeToRefs(routeStore)
+const { tags, currentTag } = storeToRefs(routeStore)
 const tagClick = tag => {
   console.log(tag)
   router.push(tag.fullPath)
@@ -27,6 +27,7 @@ const tagClose = tag => {
         :key="tag"
         class="mx-1 cursor-pointer"
         closable
+        :type="currentTag.fullPath === tag.fullPath ? '' : 'info'"
         @click="tagClick(tag)"
         @close="tagClose(tag)"
       >
