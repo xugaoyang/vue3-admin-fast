@@ -15,6 +15,8 @@ export default defineConfig({
 
 6. `pinia`在非组件使用,会报错pinia未注册的错误，参考[pinia官方文档](https://pinia.web3doc.top/core-concepts/outside-component-usage.html)
 
+7. 在处理错误路由页面配置的时候，相同的路由name会导致路由页面渲染不出来，访问后的路由信息中`name:undefined`
+
 
 #### ts 报错
 

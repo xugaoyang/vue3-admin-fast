@@ -2,6 +2,7 @@
  * meta 定义
  * title: 标题，侧边栏展示名称
  * showInMenu: 是否展示在侧边栏或者标签导航
+ * icon: 展示图标
  */
 
 import { createRouter, createWebHashHistory } from 'vue-router'
@@ -11,13 +12,13 @@ import Layout from '../layout/index.vue'
 import { includes, find } from 'lodash-es'
 import { useRouteStore } from '../store/modules/route'
 import { storeToRefs } from 'pinia'
+import errorRoutes from './modules/error'
 
 const routes = [
   {
     path: '/layout',
     name: 'layout',
-    component: () =>
-      import(/* webpackChunkName: 'layout' */ '../layout/index.vue'),
+    component: () => import('../layout/index.vue'),
     meta: {
       title: '布局',
       showInMenu: true,
@@ -27,8 +28,7 @@ const routes = [
   {
     path: '/fullpage',
     name: 'fullpage',
-    component: () =>
-      import(/* webpackChunkName: 'layout' */ '../views/Fullpage.vue'),
+    component: () => import('../views/Fullpage.vue'),
     meta: {
       title: '全屏界面',
       showInMenu: true,
@@ -42,22 +42,51 @@ const routes = [
     children: [
       {
         path: 'helloworld',
-        component: () =>
-          import(
-            /* webpackChunkName: 'helloworld' */ '../views/features/HelloWorld.vue'
-          ),
+        component: () => import('../views/features/HelloWorld.vue'),
         name: 'helloworld',
         meta: { title: '官网demo', showInMenu: true },
       },
       {
         path: 'element-plus',
         name: 'element-plus',
-        component: () =>
-          import(
-            /* webpackChunkName: 'home' */ '../views/features/ElementPlus.vue'
-          ),
+        component: () => import('../views/features/ElementPlus.vue'),
         meta: {
           title: 'element-plus',
+          showInMenu: true,
+        },
+      },
+    ],
+  },
+  {
+    path: '/error',
+    name: 'error',
+    meta: { title: '异常页', showInMenu: true },
+    component: Layout,
+    children: [
+      {
+        path: '403',
+        name: 'error-403',
+        component: () => import('../views/errors/403.vue'),
+        meta: {
+          title: '403',
+          showInMenu: true,
+        },
+      },
+      {
+        path: '404',
+        name: 'error-404',
+        component: () => import('../views/errors/404.vue'),
+        meta: {
+          title: '404',
+          showInMenu: true,
+        },
+      },
+      {
+        path: '500',
+        name: 'error-500',
+        component: () => import('../views/errors/500.vue'),
+        meta: {
+          title: '500',
           showInMenu: true,
         },
       },
@@ -67,7 +96,7 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes,
+  routes: [...routes, ...errorRoutes],
 })
 
 NProgress.configure({ showSpinner: false })
@@ -81,7 +110,7 @@ router.afterEach((to, from) => {
   console.log(to, from)
   const routeStore = useRouteStore()
   console.log(routeStore)
-  if (includes(['/login', '/401', '/404'], to.fullPath)) {
+  if (includes(['/login', '/403', '/404', '/500'], to.fullPath)) {
     return
   }
   if (to.meta && !to.meta.showInMenu) {

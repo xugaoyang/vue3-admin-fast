@@ -25,7 +25,7 @@ const tagClose = tag => {
       <el-tag
         v-for="tag in tags"
         :key="tag"
-        class="mx-1"
+        class="mx-1 cursor-pointer"
         closable
         @click="tagClick(tag)"
         @close="tagClose(tag)"
@@ -34,8 +34,8 @@ const tagClose = tag => {
       </el-tag>
     </el-scrollbar>
     <div class="extend-btns">
-      <el-icon><FullScreen /></el-icon>
-      <el-icon><ArrowDown /></el-icon>
+      <el-icon class="cursor-pointer"><FullScreen /></el-icon>
+      <el-icon class="cursor-pointer"><ArrowDown /></el-icon>
     </div>
   </div>
 </template>

@@ -20,7 +20,7 @@ const hasSide = computed(() => settingStore.layoutSideStatus)
       </el-aside>
       <el-main
         ><div class="h-30px"><tag-view /></div>
-        <router-view></router-view>
+        <div class="layout-content"><router-view></router-view></div>
       </el-main>
     </el-container>
   </el-container>
@@ -35,6 +35,10 @@ const hasSide = computed(() => settingStore.layoutSideStatus)
   padding: 0;
   height: 50px;
   border-bottom: 1px solid #eee;
+}
+
+.layout-content {
+  height: calc(100% - 30px);
 }
 
 .layout-has-side {

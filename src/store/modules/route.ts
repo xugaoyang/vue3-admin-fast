@@ -11,9 +11,9 @@ interface Tag {
   query: object
 }
 
-export const useRouteStore = defineStore('RouteStore', {
+export const useRouteStore = defineStore('routeStore', {
   persist: {
-    key: 'RouteStore',
+    key: 'routeStore',
     storage: localStorage,
   },
   state: () => {
