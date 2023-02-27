@@ -2,11 +2,12 @@
 import { defineProps } from 'vue'
 import { useRouter } from 'vue-router'
 import { HomeFilled } from '@element-plus/icons-vue'
+import type { RouteParams } from '/#/route'
 
 const router = useRouter()
 const props = defineProps(['model'])
 console.log('属性值', props.model)
-const menuClicked = data => {
+const menuClicked = (data: RouteParams) => {
   console.log(data)
   router.push(data.path)
 }

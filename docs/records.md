@@ -17,7 +17,7 @@ export default defineConfig({
 
 7. 在处理错误路由页面配置的时候，相同的路由name会导致路由页面渲染不出来，有警告信息`No match found for location with path`, 访问后的路由信息中`name:undefined`,检查对应路由信息配置是否有问题
 
-
+8. 虽然vite.config中默认有src目录的路径别名配置，但是实际开发过程中依然会有ts报错——”找不到模块或声明“，这时需要在tsconfig.json中新增 `"paths": { "@/*": ["src/*"] } 配置，但是会提示错误：未设置 "baseUrl" 时，不允许使用非相对路径。是否忘记了前导 "./"?`，因而再增加 "baseUrl": "." 配置
 
 
 #### ts 报错

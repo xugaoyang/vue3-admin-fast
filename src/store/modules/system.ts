@@ -1,4 +1,9 @@
 import { defineStore } from 'pinia'
+
+interface User<T = string | number> {
+  [key: string]: T
+}
+
 export const useSystemStore = defineStore('systemStore', {
   persist: {
     key: 'systemStore',
@@ -23,7 +28,7 @@ export const useSystemStore = defineStore('systemStore', {
     },
   },
   actions: {
-    changeUser(data: any) {
+    changeUser(data: User<string>) {
       Object.assign(this.user, data)
     },
     changeTheme(data: string) {

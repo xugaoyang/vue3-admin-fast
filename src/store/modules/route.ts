@@ -9,8 +9,8 @@ export const useRouteStore = defineStore('routeStore', {
   },
   state: () => {
     return {
-      tags: [],
-      currentTag: {},
+      tags: [] as TagParams[],
+      currentTag: {} as TagParams,
       menu: [],
     }
   },

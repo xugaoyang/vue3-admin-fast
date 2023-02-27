@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
 import { routes as routeData } from '../../router'
 import { forEach, isEmpty, has, startsWith } from 'lodash-es'
 import sidebarItem from './SidebarItem.vue'
 import { useRouter } from 'vue-router'
 import { useSettingStore } from '../../store/modules/setting'
 import { storeToRefs } from 'pinia'
+import type { LocalRouteParams } from '/#/route'
 
 const settingStore = useSettingStore()
 const { isMenuCollapse } = storeToRefs(settingStore)
@@ -18,7 +18,7 @@ console.log('路由源数据', routeData)
 
 // 递归循坏路由
 
-const recursionRoutes = routes => {
+const recursionRoutes = (routes: LocalRouteParams[]) => {
   if (isEmpty(routes)) {
     return []
   }

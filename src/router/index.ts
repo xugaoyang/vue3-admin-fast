@@ -102,7 +102,7 @@ const router = createRouter({
 
 NProgress.configure({ showSpinner: false })
 
-router.beforeEach((to, from) => {
+router.beforeEach(() => {
   NProgress.start()
 })
 
@@ -127,9 +127,7 @@ router.afterEach((to, from) => {
     showName: to.meta?.title || '404',
   }
   const { tags } = storeToRefs(routeStore)
-  console.log(tags)
   const exist = find(tags.value, { showName: tag.showName })
-  console.log(exist)
   if (!exist) {
     routeStore.addTag(tag)
   }

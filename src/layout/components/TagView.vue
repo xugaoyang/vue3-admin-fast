@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { FullScreen, ArrowDown } from '@element-plus/icons-vue'
 import { useRouteStore } from '../../store/modules/route'
 import { storeToRefs } from 'pinia'
