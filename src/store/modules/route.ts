@@ -1,15 +1,6 @@
 import { defineStore } from 'pinia'
 import { reject } from 'lodash-es'
-
-interface Tag {
-  path: string
-  showName: string
-  name: string
-  fullPath: string
-  meta: object
-  params: object
-  query: object
-}
+import type { TagParams } from '/#/tag'
 
 export const useRouteStore = defineStore('routeStore', {
   persist: {
@@ -35,13 +26,13 @@ export const useRouteStore = defineStore('routeStore', {
     },
   },
   actions: {
-    addTag(data: Tag) {
+    addTag(data: TagParams) {
       this.tags.push(data)
     },
-    deleteTag(data: Tag) {
+    deleteTag(data: TagParams) {
       this.tags = reject(this.tags, ['fullPath', data.fullPath])
     },
-    changeCurrentTag(data: Tag) {
+    changeCurrentTag(data: TagParams) {
       this.currentTag = data
     },
     changeMenu(data: []) {

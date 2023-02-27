@@ -13,6 +13,7 @@ import { includes, find } from 'lodash-es'
 import { useRouteStore } from '../store/modules/route'
 import { storeToRefs } from 'pinia'
 import errorRoutes from './modules/error'
+import type { TagParams } from '/#/tag'
 
 const routes = [
   {
@@ -116,7 +117,7 @@ router.afterEach((to, from) => {
   if (to.meta && !to.meta.showInMenu) {
     return
   }
-  const tag = {
+  const tag: TagParams = {
     fullPath: to.fullPath,
     meta: to.meta,
     name: to.name,
@@ -125,7 +126,6 @@ router.afterEach((to, from) => {
     query: to.query,
     showName: to.meta?.title || '404',
   }
-  console.log(tag)
   const { tags } = storeToRefs(routeStore)
   console.log(tags)
   const exist = find(tags.value, { showName: tag.showName })

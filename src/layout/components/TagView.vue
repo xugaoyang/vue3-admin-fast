@@ -4,16 +4,17 @@ import { FullScreen, ArrowDown } from '@element-plus/icons-vue'
 import { useRouteStore } from '../../store/modules/route'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
+import type { TagParams } from '/#/tag'
 
 const router = useRouter()
 
 const routeStore = useRouteStore()
 const { tags, currentTag } = storeToRefs(routeStore)
-const tagClick = tag => {
+const tagClick = (tag: TagParams) => {
   console.log(tag)
   router.push(tag.fullPath)
 }
-const tagClose = tag => {
+const tagClose = (tag: TagParams) => {
   console.log(tag)
   routeStore.deleteTag(tag)
 }
