@@ -63,8 +63,34 @@ pnpm i @vueuse/core
 ```
 
 7. type补充
+
+```js
+// tsconfig.json. ts添加公共路径别名
+  "compilerOptions": {
+    ...
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "#/*": ["types/*"]
+    }
+  },
 ```
-pnpm add -D @types/xxx
+```js
+// vite.config.ts.添加对应公共路径别名
+import path from 'path'
+...
+
+export default defineConfig({
+  base: './',
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+      '#': path.resolve(__dirname, 'types'),
+    },
+  },
+  ...
+})
+
 ```
 
 8. 主题切换

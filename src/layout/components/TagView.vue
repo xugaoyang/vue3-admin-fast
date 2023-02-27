@@ -3,7 +3,7 @@ import { FullScreen, ArrowDown } from '@element-plus/icons-vue'
 import { useRouteStore } from '../../store/modules/route'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
-import type { TagParams } from '/#/tag'
+import type { TagParams } from '#/tag'
 
 const router = useRouter()
 

@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { reject } from 'lodash-es'
-import type { TagParams } from '/#/tag'
+import type { TagParams } from '#/tag'
 
 export const useRouteStore = defineStore('routeStore', {
   persist: {

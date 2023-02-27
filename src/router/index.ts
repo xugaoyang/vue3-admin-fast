@@ -13,7 +13,7 @@ import { includes, find } from 'lodash-es'
 import { useRouteStore } from '../store/modules/route'
 import { storeToRefs } from 'pinia'
 import errorRoutes from './modules/error'
-import type { TagParams } from '/#/tag'
+import type { TagParams } from '#/tag'
 
 const routes = [
   {

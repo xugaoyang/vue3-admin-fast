@@ -5,7 +5,7 @@ import sidebarItem from './SidebarItem.vue'
 import { useRouter } from 'vue-router'
 import { useSettingStore } from '../../store/modules/setting'
 import { storeToRefs } from 'pinia'
-import type { LocalRouteParams } from '/#/route'
+import type { LocalRouteParams } from '#/route'
 
 const settingStore = useSettingStore()
 const { isMenuCollapse } = storeToRefs(settingStore)
