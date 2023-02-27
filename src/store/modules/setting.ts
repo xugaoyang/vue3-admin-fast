@@ -11,6 +11,9 @@ export const useSettingStore = defineStore('settingStore', {
       settingPanelShow: false,
       sideWidth: '200px',
       isMenuCollapse: false,
+      mainColor: '#409EFF',
+      naviColor: '#409EFF',
+      sideColor: '#409EFF',
     }
   },
   getters: {
@@ -26,6 +29,15 @@ export const useSettingStore = defineStore('settingStore', {
     getMenuCollapse(state) {
       return state.isMenuCollapse
     },
+    getMainColor(state) {
+      return state.mainColor
+    },
+    getNaviColor(state) {
+      return state.naviColor
+    },
+    getSideColor(state) {
+      return state.sideColor
+    },
   },
   actions: {
     changeLayoutSideStatus(data: boolean) {
@@ -39,6 +51,16 @@ export const useSettingStore = defineStore('settingStore', {
     },
     changeSideWidth(data: string) {
       this.sideWidth = data
+    },
+    changeMainColor(data: string) {
+      this.mainColor = data
+      document.documentElement.style.setProperty('--el-color-primary', data)
+    },
+    changeNaviColor(data: string) {
+      this.naviColor = data
+    },
+    changeSideColor(data: string) {
+      this.sideColor = data
     },
   },
 })
