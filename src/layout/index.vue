@@ -23,6 +23,8 @@ const initConfig = () => {
     '--el-color-primary',
     mainColor.value,
   )
+
+  document.documentElement.style.setProperty('--el-menu-item-height', '47px')
 }
 initConfig()
 </script>

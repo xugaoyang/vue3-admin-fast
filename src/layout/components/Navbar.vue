@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 import { useSystemStore } from '../../store/modules/system'
 import { useSettingStore } from '../../store/modules/setting'
+import sidebar from './SidebarMenu.vue'
 import { Setting, Sunny, Moon, Fold, Expand } from '@element-plus/icons-vue'
 import appLogo from './AppLogo.vue'
 import setting from './Setting.vue'
@@ -10,7 +11,7 @@ import { storeToRefs } from 'pinia'
 
 const mainStore = useSystemStore()
 const settingStore = useSettingStore()
-const { isMenuCollapse, naviColor } = storeToRefs(settingStore)
+const { isMenuCollapse, naviColor, layoutHasSide } = storeToRefs(settingStore)
 const isDark = useDark({
   onChanged(dark: boolean) {
     console.log(dark)
@@ -61,12 +62,13 @@ const changeMenuCollapse = () => {
         @click="changeMenuCollapse()"
         ><Fold v-if="!isMenuCollapse" /> <Expand v-else
       /></el-icon>
-      <el-breadcrumb separator="/" class="pl-10px">
+      <el-breadcrumb separator="/" class="pl-10px" v-if="layoutHasSide">
         <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
         <el-breadcrumb-item
           ><a href="/">promotion management</a></el-breadcrumb-item
         >
       </el-breadcrumb>
+      <sidebar :menuMode="'horizontal'" v-if="!layoutHasSide"></sidebar>
     </div>
     <div class="flex justify-around items-center">
       <el-switch

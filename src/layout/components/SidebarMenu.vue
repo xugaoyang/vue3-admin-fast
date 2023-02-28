@@ -9,6 +9,13 @@ import { storeToRefs } from 'pinia'
 import type { LocalRouteParams } from '#/route'
 import { useDark } from '@vueuse/core'
 
+defineProps({
+  menuMode: {
+    type: String,
+    default: 'vertical',
+  },
+})
+
 const settingStore = useSettingStore()
 const routeStore = useRouteStore()
 const { isMenuCollapse, sideColor } = storeToRefs(settingStore)
@@ -60,6 +67,7 @@ console.log('数据处理', menus)
     :collapse="isMenuCollapse"
     :background-color="getSideColor()"
     :default-active="currentTag.path"
+    :mode="menuMode"
   >
     <sidebar-item
       v-for="menu in menus"
