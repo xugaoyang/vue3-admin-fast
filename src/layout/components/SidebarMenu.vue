@@ -9,7 +9,7 @@ import { storeToRefs } from 'pinia'
 import type { LocalRouteParams } from '#/route'
 import { useDark } from '@vueuse/core'
 
-const props = defineProps({
+defineProps({
   menuMode: {
     type: String,
     default: 'vertical',

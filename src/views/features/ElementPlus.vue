@@ -5,7 +5,7 @@ import { useSystemStore } from '../../store/modules/system'
 import { storeToRefs } from 'pinia'
 
 const mainStore = useSystemStore()
-const { locale, theme } = storeToRefs(mainStore)
+const { locale } = storeToRefs(mainStore)
 
 const date = ref('')
 // -------------------------------------

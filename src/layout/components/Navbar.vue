@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import { useSystemStore } from '../../store/modules/system'
 import { useSettingStore } from '../../store/modules/setting'
 import sidebar from './SidebarMenu.vue'
@@ -8,6 +8,7 @@ import appLogo from './AppLogo.vue'
 import setting from './Setting.vue'
 import { useDark, useToggle } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
+import avatarUrl from '@/assets/svg/avatar.svg'
 
 const mainStore = useSystemStore()
 const settingStore = useSettingStore()
@@ -35,9 +36,6 @@ const logoWidth = computed(() => settingStore.getSideWidth)
 const openSettingPanel = () => {
   settingStore.changeSettingPanelStatus(true)
 }
-const avatarUrl = ref(
-  'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
-)
 
 const localeChange = (val: string) => {
   mainStore.changeLocale(val)
@@ -92,7 +90,7 @@ const changeMenuCollapse = () => {
         </template>
       </el-dropdown>
       <span class="pl-5px flex items-center">
-        <el-avatar class="mr-5px" :size="20" :src="avatarUrl" />
+        <el-avatar class="mr-5px" :size="26" :src="avatarUrl" />
         admin
       </span>
       <el-icon class="cursor-pointer pl-5px" @click="openSettingPanel()"
@@ -104,10 +102,6 @@ const changeMenuCollapse = () => {
 </template>
 
 <style scoped lang="scss">
-.header-menu {
-  min-width: 500px;
-}
-
 .header-action {
   min-width: 200px;
 }
