@@ -1,21 +1,25 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { useSettingStore } from '../store/modules/setting'
+import { storeToRefs } from 'pinia'
 
 import sidebar from './components/SidebarMenu.vue'
 import navbar from './components/Navbar.vue'
 import tagView from './components/TagView.vue'
 
 const settingStore = useSettingStore()
-const sideWidth = computed(() => settingStore.getSideWidth)
-const hasSide = computed(() => settingStore.layoutSideStatus)
+const { sideWidth, layoutHasSide, sideColor } = storeToRefs(settingStore)
 </script>
 
 <template>
   <el-container class="layout">
     <el-header class="layout-header"><navbar /></el-header>
     <el-container class="layout-has-side">
-      <el-aside :width="sideWidth" v-if="hasSide" class="sidebar-wrapper">
+      <el-aside
+        :width="sideWidth"
+        v-if="layoutHasSide"
+        class="sidebar-wrapper"
+        :style="{ backgroundColor: sideColor }"
+      >
         <sidebar />
       </el-aside>
       <el-main

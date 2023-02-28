@@ -10,7 +10,7 @@ import { storeToRefs } from 'pinia'
 
 const mainStore = useSystemStore()
 const settingStore = useSettingStore()
-const { isMenuCollapse } = storeToRefs(settingStore)
+const { isMenuCollapse, naviColor } = storeToRefs(settingStore)
 const isDark = useDark({
   onChanged(dark: boolean) {
     console.log(dark)
@@ -46,7 +46,10 @@ const changeMenuCollapse = () => {
 </script>
 
 <template>
-  <div class="flex justify-between items-center">
+  <div
+    class="flex justify-between items-center"
+    :style="{ backgroundColor: naviColor }"
+  >
     <div class="flex justify-around items-center">
       <app-logo :style="`width: ${logoWidth}`" />
       <el-icon

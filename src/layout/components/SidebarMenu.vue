@@ -8,7 +8,7 @@ import { storeToRefs } from 'pinia'
 import type { LocalRouteParams } from '#/route'
 
 const settingStore = useSettingStore()
-const { isMenuCollapse } = storeToRefs(settingStore)
+const { isMenuCollapse, sideColor } = storeToRefs(settingStore)
 
 const router = useRouter()
 
@@ -45,7 +45,7 @@ console.log('数据处理', menus)
 </script>
 
 <template>
-  <el-menu :collapse="isMenuCollapse">
+  <el-menu :collapse="isMenuCollapse" :background-color="sideColor">
     <sidebar-item
       v-for="menu in menus"
       :key="menu.id"
