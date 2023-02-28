@@ -42,6 +42,9 @@ export const useSettingStore = defineStore('settingStore', {
   actions: {
     changeLayoutSideStatus(data: boolean) {
       this.layoutHasSide = data
+      // 侧边 --> 顶栏，logo默认最大宽度，菜单不折叠；顶栏 --> 侧边，侧边不折叠，logo默认最大宽度
+      this.sideWidth = '200px'
+      this.isMenuCollapse = false
     },
     changeSettingPanelStatus(data: boolean) {
       this.settingPanelShow = data

@@ -55,22 +55,24 @@ const changeMenuCollapse = () => {
     class="flex justify-between items-center"
     :style="{ backgroundColor: getNaviColor() }"
   >
-    <div class="flex justify-around items-center">
+    <div class="flex items-center">
       <app-logo :style="`width: ${logoWidth}`" />
-      <el-icon
-        class="cursor-pointer pl-5px pr-5px"
-        @click="changeMenuCollapse()"
-        ><Fold v-if="!isMenuCollapse" /> <Expand v-else
-      /></el-icon>
-      <el-breadcrumb separator="/" class="pl-10px" v-if="layoutHasSide">
-        <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
-        <el-breadcrumb-item
-          ><a href="/">promotion management</a></el-breadcrumb-item
-        >
-      </el-breadcrumb>
-      <sidebar :menuMode="'horizontal'" v-if="!layoutHasSide"></sidebar>
+      <div class="flex items-center" v-if="layoutHasSide">
+        <el-icon
+          class="cursor-pointer pl-5px pr-5px"
+          @click="changeMenuCollapse()"
+          ><Fold v-if="!isMenuCollapse" /> <Expand v-else
+        /></el-icon>
+        <el-breadcrumb separator="/" class="pl-10px">
+          <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
+          <el-breadcrumb-item
+            ><a href="/">promotion management</a></el-breadcrumb-item
+          >
+        </el-breadcrumb>
+      </div>
+      <sidebar :menuMode="'horizontal'" v-else></sidebar>
     </div>
-    <div class="flex justify-around items-center">
+    <div class="header-action flex justify-around items-center">
       <el-switch
         @change="toggleDark"
         v-model="currentTheme"
@@ -101,4 +103,12 @@ const changeMenuCollapse = () => {
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.header-menu {
+  min-width: 500px;
+}
+
+.header-action {
+  min-width: 200px;
+}
+</style>
