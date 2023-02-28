@@ -102,7 +102,7 @@ export default defineConfig({
   - [x] 标签导航: tagview【TODO:支持批量删除】
   - [x] 侧边菜单：sidebarmenu
   - [x] 全局配置：setting
-    - [x] layout布局【1. 侧边菜单；2. TODO:顶部菜单】
+    - [x] layout布局【1. 侧边菜单；2. 顶部菜单】
     - [x] 主题色色板配置
     - [x] 导航栏色板配置
     - [x] 侧边菜单色板配置
@@ -118,4 +118,9 @@ export default defineConfig({
 - [x] 404 - 抱歉，您访问的页面不存在 --> 返回首页
 - [x] 500 - 抱歉，服务器报告错误 --> 返回首页
 
+12. 页面补充
+- [ ] 登录
+- [ ] 首页
+- [ ] 国际化
 
+13. mock数据
