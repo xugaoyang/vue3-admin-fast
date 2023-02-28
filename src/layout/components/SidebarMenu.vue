@@ -4,12 +4,16 @@ import { forEach, isEmpty, has, startsWith } from 'lodash-es'
 import sidebarItem from './SidebarItem.vue'
 import { useRouter } from 'vue-router'
 import { useSettingStore } from '../../store/modules/setting'
+import { useRouteStore } from '@/store/modules/route'
 import { storeToRefs } from 'pinia'
 import type { LocalRouteParams } from '#/route'
 import { useDark } from '@vueuse/core'
 
 const settingStore = useSettingStore()
+const routeStore = useRouteStore()
 const { isMenuCollapse, sideColor } = storeToRefs(settingStore)
+const { currentTag } = storeToRefs(routeStore)
+
 const isDark = useDark()
 console.log('侧边栏获取isDark', isDark.value)
 
@@ -52,7 +56,11 @@ console.log('数据处理', menus)
 </script>
 
 <template>
-  <el-menu :collapse="isMenuCollapse" :background-color="getSideColor()">
+  <el-menu
+    :collapse="isMenuCollapse"
+    :background-color="getSideColor()"
+    :default-active="currentTag.path"
+  >
     <sidebar-item
       v-for="menu in menus"
       :key="menu.id"

@@ -95,19 +95,17 @@ export default defineConfig({
 
 8. 主题切换
 - [x] 使用useDark钩子来进行普通黑白皮肤的切换
-- [ ] 使用配置项自定义皮肤
-
 
 9. layout组件
-  - [ ] 导航栏：navbar
+  - [ ] 导航栏：navbar【面包屑，支持导航栏菜单顶部展示】
   - [x] logo: logo
-  - [x] 标签导航: tagview
+  - [x] 标签导航: tagview【TODO:支持批量删除】
   - [x] 侧边菜单：sidebarmenu
-  - [ ] 全局配置：setting
-    - [ ] layout布局【1. 侧边菜单；2. 顶部菜单】
-    - [ ] 主题色色板配置
-    - [ ] 导航栏色板配置
-    - [ ] 侧边菜单色板配置
+  - [x] 全局配置：setting
+    - [x] layout布局【1. 侧边菜单；2. TODO:顶部菜单】
+    - [x] 主题色色板配置
+    - [x] 导航栏色板配置
+    - [x] 侧边菜单色板配置
 
 
 10. axios配置

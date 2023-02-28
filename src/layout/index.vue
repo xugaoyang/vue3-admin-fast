@@ -39,7 +39,7 @@ initConfig()
       >
         <sidebar />
       </el-aside>
-      <el-main
+      <el-main class="layout-content-with-tagview"
         ><div class="h-30px"><tag-view /></div>
         <div class="layout-content"><router-view></router-view></div>
       </el-main>

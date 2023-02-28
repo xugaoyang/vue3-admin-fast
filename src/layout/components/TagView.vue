@@ -4,17 +4,20 @@ import { useRouteStore } from '../../store/modules/route'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import type { TagParams } from '#/tag'
+import { useFullscreen } from '@vueuse/core'
+
+const el: HTMLElement | null = document.querySelector(
+  '.layout-content-with-tagview',
+)
+const { toggle } = useFullscreen(el)
 
 const router = useRouter()
-
 const routeStore = useRouteStore()
 const { tags, currentTag } = storeToRefs(routeStore)
 const tagClick = (tag: TagParams) => {
-  console.log(tag)
   router.push(tag.fullPath)
 }
 const tagClose = (tag: TagParams) => {
-  console.log(tag)
   routeStore.deleteTag(tag)
 }
 </script>
@@ -35,7 +38,7 @@ const tagClose = (tag: TagParams) => {
       </el-tag>
     </el-scrollbar>
     <div class="extend-btns">
-      <el-icon class="cursor-pointer"><FullScreen /></el-icon>
+      <el-icon class="cursor-pointer" @click="toggle"><FullScreen /></el-icon>
       <el-icon class="cursor-pointer"><ArrowDown /></el-icon>
     </div>
   </div>
