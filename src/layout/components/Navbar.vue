@@ -25,6 +25,10 @@ const isDark = useDark({
   },
 })
 const toggleDark = useToggle(isDark)
+
+const getNaviColor = () => {
+  return isDark.value ? '' : naviColor.value
+}
 const currentTheme = computed(() => (mainStore.theme === 'dark' ? true : false))
 const logoWidth = computed(() => settingStore.getSideWidth)
 const openSettingPanel = () => {
@@ -48,7 +52,7 @@ const changeMenuCollapse = () => {
 <template>
   <div
     class="flex justify-between items-center"
-    :style="{ backgroundColor: naviColor }"
+    :style="{ backgroundColor: getNaviColor() }"
   >
     <div class="flex justify-around items-center">
       <app-logo :style="`width: ${logoWidth}`" />

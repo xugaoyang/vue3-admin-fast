@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useSettingStore } from '../store/modules/setting'
 import { storeToRefs } from 'pinia'
+import { useDark } from '@vueuse/core'
 
 import sidebar from './components/SidebarMenu.vue'
 import navbar from './components/Navbar.vue'
@@ -9,7 +10,12 @@ import tagView from './components/TagView.vue'
 const settingStore = useSettingStore()
 const { sideWidth, layoutHasSide, sideColor, mainColor } =
   storeToRefs(settingStore)
+const isDark = useDark()
+console.log('侧边栏获取isDark', isDark.value)
 
+const getSideColor = () => {
+  return isDark.value ? '' : sideColor.value
+}
 // 初始化配置
 const initConfig = () => {
   // 主题色init
@@ -29,7 +35,7 @@ initConfig()
         :width="sideWidth"
         v-if="layoutHasSide"
         class="sidebar-wrapper"
-        :style="{ backgroundColor: sideColor }"
+        :style="{ backgroundColor: getSideColor() }"
       >
         <sidebar />
       </el-aside>

@@ -6,10 +6,17 @@ import { useRouter } from 'vue-router'
 import { useSettingStore } from '../../store/modules/setting'
 import { storeToRefs } from 'pinia'
 import type { LocalRouteParams } from '#/route'
+import { useDark } from '@vueuse/core'
 
 const settingStore = useSettingStore()
 const { isMenuCollapse, sideColor } = storeToRefs(settingStore)
+const isDark = useDark()
+console.log('侧边栏获取isDark', isDark.value)
 
+const getSideColor = () => {
+  return isDark.value ? '' : sideColor.value
+}
+console.log('侧边菜单背景色', getSideColor())
 const router = useRouter()
 
 console.log(router.options)
@@ -45,7 +52,7 @@ console.log('数据处理', menus)
 </script>
 
 <template>
-  <el-menu :collapse="isMenuCollapse" :background-color="sideColor">
+  <el-menu :collapse="isMenuCollapse" :background-color="getSideColor()">
     <sidebar-item
       v-for="menu in menus"
       :key="menu.id"
