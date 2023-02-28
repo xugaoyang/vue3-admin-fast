@@ -7,7 +7,18 @@ import navbar from './components/Navbar.vue'
 import tagView from './components/TagView.vue'
 
 const settingStore = useSettingStore()
-const { sideWidth, layoutHasSide, sideColor } = storeToRefs(settingStore)
+const { sideWidth, layoutHasSide, sideColor, mainColor } =
+  storeToRefs(settingStore)
+
+// 初始化配置
+const initConfig = () => {
+  // 主题色init
+  document.documentElement.style.setProperty(
+    '--el-color-primary',
+    mainColor.value,
+  )
+}
+initConfig()
 </script>
 
 <template>
