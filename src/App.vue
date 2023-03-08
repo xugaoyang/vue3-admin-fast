@@ -7,6 +7,7 @@ import { storeToRefs } from 'pinia'
 
 const SystemStore = useSystemStore()
 const { locale } = storeToRefs(SystemStore)
+console.warn(import.meta.env)
 </script>
 
 <template>
