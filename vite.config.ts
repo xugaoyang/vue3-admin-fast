@@ -20,7 +20,7 @@ export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), ['VITE', 'TEST'])
   console.log(env)
   return {
-    base: './',
+    base: '/vue3-admin-fast/',
     envPrefix: ['VITE', 'TEST'],
     resolve: {
       alias: {
