@@ -94,10 +94,16 @@ const routes = [
     ],
   },
 ]
-
+const commonRoutes = [
+  {
+    path: '/',
+    redirect: '/feature/element-plus',
+  },
+  ...errorRoutes,
+]
 const router = createRouter({
   history: createWebHashHistory(),
-  routes: [...routes, ...errorRoutes],
+  routes: [...commonRoutes, ...routes],
 })
 
 NProgress.configure({ showSpinner: false })
