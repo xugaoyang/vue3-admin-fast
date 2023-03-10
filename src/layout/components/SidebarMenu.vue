@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { routes as routeData } from '../../router'
 import { forEach, isEmpty, has, startsWith } from 'lodash-es'
 import sidebarItem from './SidebarItem.vue'
@@ -24,10 +25,10 @@ const { currentTag } = storeToRefs(routeStore)
 const isDark = useDark()
 console.log('侧边栏获取isDark', isDark.value)
 
-const getSideColor = () => {
+const getSideColor = computed(() => {
   return isDark.value ? '' : sideColor.value
-}
-console.log('侧边菜单背景色', getSideColor())
+})
+console.log('侧边菜单背景色', getSideColor)
 const router = useRouter()
 
 console.log(router.options)
@@ -65,7 +66,7 @@ console.log('数据处理', menus)
 <template>
   <el-menu
     :collapse="isMenuCollapse"
-    :background-color="getSideColor()"
+    :background-color="getSideColor"
     :default-active="currentTag.path"
     :mode="menuMode"
   >
@@ -80,5 +81,9 @@ console.log('数据处理', menus)
 <style scoped lang="scss">
 .el-menu {
   border-right: 0;
+}
+
+.el-menu--horizontal {
+  border-bottom: 0;
 }
 </style>

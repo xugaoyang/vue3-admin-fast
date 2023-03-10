@@ -12,7 +12,8 @@ import avatarUrl from '@/assets/svg/avatar.svg'
 
 const mainStore = useSystemStore()
 const settingStore = useSettingStore()
-const { isMenuCollapse, naviColor, layoutHasSide } = storeToRefs(settingStore)
+const { isMenuCollapse, naviColor, sideColor, layoutHasSide } =
+  storeToRefs(settingStore)
 const isDark = useDark({
   onChanged(dark: boolean) {
     console.log(dark)
@@ -30,6 +31,9 @@ const toggleDark = useToggle(isDark)
 
 const getNaviColor = () => {
   return isDark.value ? '' : naviColor.value
+}
+const getLogoColor = () => {
+  return layoutHasSide.value ? sideColor.value : getNaviColor()
 }
 const currentTheme = computed(() => (mainStore.theme === 'dark' ? true : false))
 const logoWidth = computed(() => settingStore.getSideWidth)
@@ -54,7 +58,9 @@ const changeMenuCollapse = () => {
     :style="{ backgroundColor: getNaviColor() }"
   >
     <div class="flex items-center">
-      <app-logo :style="`width: ${logoWidth}`" />
+      <app-logo
+        :style="`width: ${logoWidth};backgroundColor:${getLogoColor()}`"
+      />
       <div class="flex items-center" v-if="layoutHasSide">
         <el-icon
           class="cursor-pointer pl-5px pr-5px"

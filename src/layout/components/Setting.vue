@@ -11,8 +11,11 @@ const direction = ref('rtl')
 const handleClose = () => {
   settingStore.changeSettingPanelStatus(false)
 }
-const changeColor = (data: string) => {
+const changeMainColor = (data: string) => {
   settingStore.changeMainColor(data)
+}
+const changeSideColor = (data: string) => {
+  settingStore.changeSideColor(data)
 }
 </script>
 
@@ -48,7 +51,7 @@ const changeColor = (data: string) => {
     </el-row>
     <el-row class="p-5px">
       <span class="w-100px">主题色配置：</span>
-      <el-color-picker v-model="mainColor" @change="changeColor" />
+      <el-color-picker v-model="mainColor" @change="changeMainColor" />
     </el-row>
     <el-row class="p-5px">
       <span class="w-100px">导航栏配置：</span>
@@ -56,7 +59,7 @@ const changeColor = (data: string) => {
     </el-row>
     <el-row class="p-5px">
       <span class="w-100px">侧边栏配置：</span>
-      <el-color-picker v-model="sideColor" />
+      <el-color-picker v-model="sideColor" @change="changeSideColor" />
     </el-row>
   </el-drawer>
 </template>
