@@ -13,6 +13,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
+      - run: npm install pnpm
       - run: pnpm install
       - run: pnpm run build
       - name: Deploy # 部署
