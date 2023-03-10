@@ -120,11 +120,11 @@ router.afterEach((to, from) => {
   const tag: TagParams = {
     fullPath: to.fullPath,
     meta: to.meta,
-    name: to.name,
+    name: to.name as string,
     params: to.params,
     path: to.path,
     query: to.query,
-    showName: to.meta.title || '404',
+    showName: `${to.meta.title as string}` || '404',
   }
   const { tags } = storeToRefs(routeStore)
   const exist = find(tags.value, { showName: tag.showName })

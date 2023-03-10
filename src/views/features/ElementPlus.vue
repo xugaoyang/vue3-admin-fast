@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
-import type { FormInstance, FormRules } from 'element-plus'
 import { useSystemStore } from '../../store/modules/system'
 import { storeToRefs } from 'pinia'
 
@@ -10,7 +9,7 @@ const { locale } = storeToRefs(mainStore)
 const date = ref('')
 // -------------------------------------
 const formSize = ref('default')
-const ruleFormRef = ref<FormInstance>()
+const ruleFormRef = ref()
 const ruleForm = reactive({
   name: 'Hello',
   region: '',
@@ -23,7 +22,7 @@ const ruleForm = reactive({
   desc: '',
 })
 
-const rules = reactive<FormRules>({
+const rules = reactive({
   name: [
     { required: true, message: 'Please input Activity name', trigger: 'blur' },
     { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
@@ -78,18 +77,18 @@ const rules = reactive<FormRules>({
   ],
 })
 
-const submitForm = async (formEl: FormInstance | undefined) => {
+const submitForm = async (formEl: any) => {
   if (!formEl) return
-  await formEl.validate((valid, fields) => {
+  await formEl.validate((valid: boolean) => {
     if (valid) {
       console.log('submit!')
     } else {
-      console.log('error submit!', fields)
+      console.log('error submit!')
     }
   })
 }
 
-const resetForm = (formEl: FormInstance | undefined) => {
+const resetForm = (formEl: any) => {
   if (!formEl) return
   formEl.resetFields()
 }
