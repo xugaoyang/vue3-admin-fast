@@ -22,9 +22,6 @@ export default defineConfig(({ command, mode }) => {
   return {
     base: '/vue3-admin-fast/',
     envPrefix: ['VITE', 'TEST'],
-    build: {
-      outDir: 'githubPage',
-    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),
