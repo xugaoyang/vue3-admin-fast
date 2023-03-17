@@ -1,0 +1,16 @@
+.test {
+  background: red;
+}
+
+.block {
+  width: 200px;
+  height: 200px;
+}
+
+.test-camelCase {
+  background: blue;
+}
+
+.testCamelCase {
+  background: purple;
+}

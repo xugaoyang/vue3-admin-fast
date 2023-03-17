@@ -56,6 +56,15 @@ const routes = [
           showInMenu: true,
         },
       },
+      {
+        path: 'cssModule',
+        name: 'cssModule',
+        component: () => import('../views/features/CssModule.vue'),
+        meta: {
+          title: 'cssModule',
+          showInMenu: true,
+        },
+      },
     ],
   },
   {

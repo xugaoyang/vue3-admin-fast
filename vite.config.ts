@@ -1,11 +1,11 @@
-import { defineConfig, loadEnv } from 'vite'
+import { defineConfig, loadEnv, splitVendorChunkPlugin } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import WindiCSS from 'vite-plugin-windicss'
 import path from 'path'
 
 export default defineConfig(({ command, mode }) => {
-  console.log('node服务日志', command, mode)
-  const env = loadEnv(mode, process.cwd(), ['VITE', 'TEST'])
+  console.log('node服务日志', command, mode, process.env)
+  const env = loadEnv(mode, process.cwd(), '')
   console.log(env)
   return {
     base: mode === 'development' ? './' : '/vue3-admin-fast/',
@@ -16,6 +16,33 @@ export default defineConfig(({ command, mode }) => {
         '#': path.resolve(__dirname, 'types'),
       },
     },
-    plugins: [vue(), WindiCSS()],
+    css: {
+      modules: {
+        localsConvention: 'camelCase',
+      },
+    },
+    server: {
+      proxy: {
+        '/api': {
+          target: 'https://echo.apifox.com/image/jpeg',
+          changeOrigin: true,
+          rewrite: path => path.replace(/^\/api/, ''),
+        },
+      },
+    },
+    build: {
+      watch: {},
+      minify: true,
+      rollupOptions: {
+        output: {
+          // manualChunks: path => {
+          //   if (path.includes('node_modules')) {
+          //     return 'vendor'
+          //   }
+          // },
+        },
+      },
+    },
+    plugins: [vue(), WindiCSS(), splitVendorChunkPlugin()],
   }
 })
