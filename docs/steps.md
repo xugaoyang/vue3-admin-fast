@@ -124,3 +124,5 @@ export default defineConfig({
 - [ ] 国际化
 
 13. mock数据
+
+14. 单元测试

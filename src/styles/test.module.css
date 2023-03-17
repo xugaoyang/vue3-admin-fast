@@ -1,5 +1,10 @@
-.test {
+.css-module-div {
   background: red;
+}
+
+.css-module-title {
+  font-size: 20px;
+  color: lightgreen;
 }
 
 .block {
