@@ -65,6 +65,15 @@ const routes = [
           showInMenu: true,
         },
       },
+      {
+        path: 'mock',
+        name: 'mock',
+        component: () => import('../views/features/Mock.vue'),
+        meta: {
+          title: 'mock',
+          showInMenu: true,
+        },
+      },
     ],
   },
   {
