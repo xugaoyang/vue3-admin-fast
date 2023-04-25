@@ -33,7 +33,7 @@ export default defineConfig(({ command, mode }) => {
       },
     },
     build: {
-      watch: {},
+      watch: null,
       minify: true,
       rollupOptions: {
         output: {
