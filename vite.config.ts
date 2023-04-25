@@ -1,7 +1,9 @@
 import { defineConfig, loadEnv, splitVendorChunkPlugin } from 'vite'
+import { viteMockServe } from 'vite-plugin-mock'
 import vue from '@vitejs/plugin-vue'
 import WindiCSS from 'vite-plugin-windicss'
 import path from 'path'
+console.log('vite-plugin', viteMockServe)
 
 export default defineConfig(({ command, mode }) => {
   console.log('node服务日志', command, mode, process.env)
@@ -43,6 +45,14 @@ export default defineConfig(({ command, mode }) => {
         },
       },
     },
-    plugins: [vue(), WindiCSS(), splitVendorChunkPlugin()],
+    plugins: [
+      vue(),
+      WindiCSS(),
+      splitVendorChunkPlugin(),
+      viteMockServe({
+        mockPath: 'mock',
+        enable: command === 'serve',
+      }),
+    ],
   }
 })

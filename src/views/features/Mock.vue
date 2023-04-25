@@ -4,11 +4,11 @@ import request from '@/utils/request'
 const data = ref(null)
 const getData = function () {
   request({
-    url: '/getData',
+    url: '/api/list',
     method: 'get',
   }).then(res => {
     console.log('请求成功!', res)
-    data.value = res.data.dataList
+    data.value = res.data
   })
 }
 </script>

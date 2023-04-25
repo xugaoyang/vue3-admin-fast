@@ -10,3 +10,5 @@ declare module 'element-plus'
 declare module 'element-plus/dist/locale/zh-cn.mjs'
 
 declare module 'element-plus/dist/locale/en.mjs'
+
+declare module 'vite-plugin-mock/es/createProdMockServer'
