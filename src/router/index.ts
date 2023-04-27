@@ -36,6 +36,14 @@ const routes = [
     },
   },
   {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/Login.vue'),
+    meta: {
+      title: '登录',
+    },
+  },
+  {
     path: '/feature',
     name: 'feature',
     meta: { title: '功能调试', showInMenu: true },
