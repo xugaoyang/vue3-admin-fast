@@ -124,7 +124,7 @@ const routes = [
 const commonRoutes = [
   {
     path: '/',
-    redirect: '/feature/element-plus',
+    redirect: '/login',
   },
   ...errorRoutes,
 ]

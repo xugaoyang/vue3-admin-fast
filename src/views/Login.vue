@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 import { Lock, User } from '@element-plus/icons-vue'
+import { ElMessage } from 'element-plus'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const loginFormRef = ref(null)
 const loginForm = reactive({
   username: '',
@@ -23,6 +26,11 @@ const login = (Ele: any) => {
   Ele.validate((valid: boolean, fields: any) => {
     if (valid) {
       console.log('submit!')
+      if (loginForm.username === 'admin' && loginForm.password === '123456') {
+        router.push('/feature/element-plus')
+      } else {
+        ElMessage.warning('请输入正确的用户名密码')
+      }
     } else {
       console.log('error submit!', fields)
     }
@@ -41,7 +49,7 @@ const login = (Ele: any) => {
   <div class="login-wrapper">
     <div class="flex justify-around">
       <img src="../assets/vue.svg" class="logo" alt="logo" />
-      <h2 class="login-title">VUE3-ADMIN-FAST</h2>
+      <h2 class="login-title">Vue3-Admin-Fast</h2>
     </div>
     <el-form :model="loginForm" :rules="rules" ref="loginFormRef">
       <el-form-item prop="username">
@@ -104,6 +112,10 @@ const login = (Ele: any) => {
   :deep(.el-button) {
     color: #fff;
     background-color: rgb(255 255 255 / 20%);
+  }
+
+  :deep(.el-input__inner) {
+    color: #fff;
   }
 }
 </style>
