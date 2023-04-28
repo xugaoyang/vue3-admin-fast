@@ -4,7 +4,7 @@ export type ObjectKeyValue<T = string | number> = {
 
 export interface MetaParams {
   title: string
-  showInMenu: boolean
+  showInMenu?: boolean
   icon?: string
 }
 

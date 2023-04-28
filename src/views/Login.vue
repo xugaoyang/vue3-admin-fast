@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 import { Lock, User } from '@element-plus/icons-vue'
-import type { FormInstance, FormRules } from 'element-plus'
 
-const loginFormRef = ref<FormInstance>()
+const loginFormRef = ref(null)
 const loginForm = reactive({
   username: '',
   password: '',
 })
 
-const rules = reactive<FormRules>({
+const rules = reactive({
   username: [{ required: true, message: '请输入账号', trigger: 'blur' }],
   password: [
     {
@@ -19,7 +18,7 @@ const rules = reactive<FormRules>({
     },
   ],
 })
-const login = (Ele: FormInstance | undefined) => {
+const login = (Ele: any) => {
   if (!Ele) return
   Ele.validate((valid: boolean, fields: any) => {
     if (valid) {
