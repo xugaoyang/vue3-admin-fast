@@ -1,1 +1,0 @@
-import{_ as e}from"./index-ea294f63.js";import{o,g as s}from"./vendor-8f17f3e0.js";const c={},t={class:"w-full h-full"};function r(n,_){return o(),s("div",t)}const f=e(c,[["render",r]]);export{f as default};
