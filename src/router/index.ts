@@ -34,6 +34,23 @@ const routes = [
     ],
   },
   {
+    path: '/dashboard',
+    name: 'dashboard',
+    meta: { title: 'dashboard', showInMenu: true },
+    component: Layout,
+    children: [
+      {
+        path: 'analysis',
+        name: 'analysis',
+        component: () => import('../views/dashboard/Analysis.vue'),
+        meta: {
+          title: '分析页',
+          showInMenu: true,
+        },
+      },
+    ],
+  },
+  {
     path: '/layout',
     name: 'layout',
     component: () => import('../layout/index.vue'),

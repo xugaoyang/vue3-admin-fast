@@ -13,3 +13,9 @@ body {
   height: 4px !important;
   background: purple !important;
 }
+
+html.dark {
+  .logo-wrapper {
+    background: #000!important;
+  }
+}

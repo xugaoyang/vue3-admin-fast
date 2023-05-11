@@ -2,7 +2,7 @@
 
 <template>
   <div class="w-full h-full relative">
-    <img src="../../assets/welcome.png" />
+    <img src="../../assets/svg/welcome.svg" />
   </div>
 </template>
 
@@ -14,5 +14,6 @@ img {
   bottom: 0;
   left: 0;
   margin: auto;
+  width: 80%;
 }
 </style>
