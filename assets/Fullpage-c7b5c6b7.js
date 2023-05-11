@@ -1,0 +1,1 @@
+import{a as t,r,o as a,c as n,w as s,C as c,u}from"./vendor-8f17f3e0.js";const i=t({__name:"Fullpage",setup(l){const e=u();return console.log(e,e.getRoutes()),(_,p)=>{const o=r("router-link");return a(),n(o,{to:"/layout"},{default:s(()=>[c("页面跳转")]),_:1})}}});export{i as default};
