@@ -3,7 +3,12 @@
 <template>
   <div class="w-full h-full">
     <div class="text-center pt-100px">
-      <img src="../../assets/svg/403.svg" class="w-400px" alt="logo" />
+      <img
+        src="../../assets/svg/403.svg"
+        class="w-400px"
+        alt="logo"
+        loading="lazy"
+      />
     </div>
     <h3 class="text-30px text-center">403</h3>
     <p class="text-14px text-center">抱歉，您无权访问此页面</p>
