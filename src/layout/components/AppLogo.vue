@@ -1,20 +1,10 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="logo-wrapper">
-    <img src="../../assets/vue.svg" class="logo" alt="logo" />
+  <div class="logo flex justify-center items-center">
+    <img class="h-40px" src="../../assets/vue.svg" alt="logo" />
+    <span class="text-18px font-bold">Vue3 admin</span>
   </div>
 </template>
 
-<style scoped lang="scss">
-.logo-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-
-  .logo {
-    height: 40px;
-  }
-}
-</style>
+<style scoped lang="scss"></style>
