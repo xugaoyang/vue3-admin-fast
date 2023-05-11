@@ -29,7 +29,7 @@ const tagClose = (tag: TagParams) => {
         v-for="tag in tags"
         :key="tag"
         class="mx-1 cursor-pointer"
-        closable
+        :closable="tag.showName !== 'welcome'"
         :type="currentTag.fullPath === tag.fullPath ? '' : 'info'"
         @click="tagClick(tag)"
         @close="tagClose(tag)"
