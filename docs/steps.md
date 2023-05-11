@@ -120,7 +120,7 @@ export default defineConfig({
 
 12. 页面补充
 - [x] 登录
-- [ ] 首页
+- [x] 首页
 - [ ] 国际化
 
 13. mock数据

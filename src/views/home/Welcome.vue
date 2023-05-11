@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="w-full h-full text-center">
+  <div class="w-full h-full relative">
     <img src="../../assets/welcome.png" />
   </div>
 </template>
