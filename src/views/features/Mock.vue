@@ -14,8 +14,10 @@ const getData = function () {
 </script>
 
 <template>
-  <el-button @click="getData">点我mock</el-button>
-  <div>这是请求到的数据{{ data }}</div>
+  <div class="h-full w-full">
+    <el-button @click="getData">点我mock</el-button>
+    <div>这是请求到的数据{{ data }}</div>
+  </div>
 </template>
 
 <style scoped></style>

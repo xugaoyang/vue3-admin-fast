@@ -164,7 +164,7 @@ const value = ref([])
 </script>
 
 <template>
-  <div class="feature p-20px">
+  <div class="feature p-10px">
     <h3 class="text-24px">功能调试页</h3>
     <el-divider />
     <router-link :to="'/feature/helloworld'">页面跳转</router-link>

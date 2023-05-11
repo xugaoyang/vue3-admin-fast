@@ -23,7 +23,7 @@ const tagClose = (tag: TagParams) => {
 </script>
 
 <template>
-  <div class="flex items-center justify-between">
+  <div class="flex items-center justify-between bg-white">
     <el-scrollbar>
       <el-tag
         v-for="tag in tags"
@@ -56,7 +56,7 @@ const tagClose = (tag: TagParams) => {
 
   .el-icon {
     width: 30px;
-    height: 26px;
+    height: 30px;
     line-height: 24px;
     border-left: 1px solid #ccc;
   }

@@ -42,8 +42,12 @@ initConfig()
         <sidebar />
       </el-aside>
       <el-main class="layout-content-with-tagview"
-        ><div class="h-30px"><tag-view /></div>
-        <div class="layout-content"><router-view></router-view></div>
+        ><div class="tag-wrapper h-30px"><tag-view /></div>
+        <div class="layout-content">
+          <div class="h-full bg-white rounded-5px view-shadow">
+            <router-view></router-view>
+          </div>
+        </div>
       </el-main>
     </el-container>
   </el-container>
@@ -60,11 +64,13 @@ initConfig()
   border-bottom: 1px solid #eee;
 }
 
-.layout-content {
-  height: calc(100% - 30px);
+.layout-has-side {
+  height: calc(100% - 50px);
 }
 
-.layout-has-side {
+.layout-content {
+  overflow-x: hidden;
+  padding: 10px;
   height: calc(100% - 50px);
 }
 
@@ -74,6 +80,15 @@ initConfig()
 }
 
 .el-main {
-  padding: 10px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.tag-wrapper {
+  // border-top: 1px solid #eee;
+}
+
+.view-shadow {
+  box-shadow: 0 0 5px rgb(0 0 0 / 15%);
 }
 </style>

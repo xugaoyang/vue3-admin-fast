@@ -18,4 +18,20 @@ html.dark {
   .logo-wrapper {
     background: #000!important;
   }
+
+  .layout-content {
+    background: #000!important;
+  }
+
+  .tag-wrapper {
+    background: #000!important;
+
+    &>div {
+      background: #000!important;
+    }
+  }
+
+  .el-main {
+    background: #000!important;
+  }
 }
