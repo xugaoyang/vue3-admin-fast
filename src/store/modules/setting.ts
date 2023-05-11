@@ -11,7 +11,7 @@ export const useSettingStore = defineStore('settingStore', {
       settingPanelShow: false,
       sideWidth: '200px',
       isMenuCollapse: false,
-      mainColor: '#409EFF',
+      mainColor: '#6C63FF',
       naviColor: '#fff',
       sideColor: '#fff',
       lastSideColor: '#fff',

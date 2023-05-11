@@ -17,6 +17,23 @@ import type { TagParams } from '#/tag'
 
 const routes = [
   {
+    path: '/home',
+    name: 'home',
+    meta: { title: '首页', showInMenu: true },
+    component: Layout,
+    children: [
+      {
+        path: 'welcome',
+        name: 'welcome',
+        component: () => import('../views/home/Welcome.vue'),
+        meta: {
+          title: 'welcome',
+          showInMenu: true,
+        },
+      },
+    ],
+  },
+  {
     path: '/layout',
     name: 'layout',
     component: () => import('../layout/index.vue'),
@@ -124,7 +141,7 @@ const routes = [
 const commonRoutes = [
   {
     path: '/',
-    redirect: '/login',
+    redirect: '/home/welcome',
   },
   ...errorRoutes,
 ]
