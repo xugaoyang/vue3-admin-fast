@@ -1,0 +1,1 @@
+import{_ as e}from"./index-c563d623.js";import{o as s,g as t,f as o}from"./vendor-8f17f3e0.js";const c="/vue3-admin-fast/assets/welcome-21aba3d2.svg",n={},r={class:"h-full w-full flex justify-center items-center"},a=o("img",{src:c},null,-1),_=[a];function l(f,i){return s(),t("div",r,_)}const u=e(n,[["render",l]]);export{u as default};
