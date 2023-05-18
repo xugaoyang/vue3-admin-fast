@@ -59,7 +59,7 @@ export default defineConfig(({ command, mode }) => {
         imports: ['vue', 'vue-router'],
         dts: 'src/auto-import.d.ts',
         eslintrc: {
-          enabled: true
+          enabled: true,
         },
       }),
     ],
