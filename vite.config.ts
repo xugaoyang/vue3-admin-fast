@@ -3,6 +3,8 @@ import { viteMockServe } from 'vite-plugin-mock'
 import vue from '@vitejs/plugin-vue'
 import WindiCSS from 'vite-plugin-windicss'
 import path from 'path'
+import AutoImport from 'unplugin-auto-import/vite'
+
 console.log('vite-plugin', viteMockServe)
 
 export default defineConfig(({ command, mode }) => {
@@ -52,6 +54,13 @@ export default defineConfig(({ command, mode }) => {
       viteMockServe({
         mockPath: 'mock',
         enable: command === 'serve',
+      }),
+      AutoImport({
+        imports: ['vue', 'vue-router'],
+        dts: 'src/auto-import.d.ts',
+        eslintrc: {
+          enabled: true
+        },
       }),
     ],
   }
