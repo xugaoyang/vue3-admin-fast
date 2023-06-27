@@ -42,7 +42,7 @@ initConfig()
         <sidebar />
       </el-aside>
       <el-main class="layout-content-with-tagview"
-        ><div class="tag-wrapper h-30px"><tag-view /></div>
+        ><div class="tag-wrapper"><tag-view /></div>
         <div class="layout-content">
           <div class="h-full rounded-5px view-shadow">
             <router-view></router-view>
@@ -71,7 +71,7 @@ initConfig()
 .layout-content {
   overflow-x: hidden;
   padding: 10px;
-  height: calc(100% - 50px);
+  height: calc(100% - 60px);
 }
 
 .sidebar-wrapper {
