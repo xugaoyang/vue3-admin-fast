@@ -55,7 +55,7 @@ const changeMenuCollapse = () => {
 <template>
   <div
     class="flex justify-between items-center"
-    :style="{ backgroundColor: getNaviColor() }"
+    :style="{ backgroundColor: getNaviColor(), height: '50px' }"
   >
     <div class="flex items-center">
       <app-logo
