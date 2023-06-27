@@ -2,6 +2,15 @@ body {
   margin: 0;
 }
 
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--el-border-color-darker);
+  border-radius: 20px
+}
 
 #app {
   overflow: hidden;
