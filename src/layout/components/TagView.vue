@@ -3,8 +3,8 @@ import { FullScreen, ArrowDown } from '@element-plus/icons-vue'
 import { useRouteStore } from '../../store/modules/route'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
-import type { TagParams } from '#/tag'
 import { useFullscreen } from '@vueuse/core'
+import { find } from 'lodash-es'
 
 const el: HTMLElement | null = document.querySelector(
   '.layout-content-with-tagview',
@@ -14,12 +14,13 @@ const { toggle } = useFullscreen(el)
 const router = useRouter()
 const routeStore = useRouteStore()
 const { tags, currentTag } = storeToRefs(routeStore)
-const tagClick = tag => {
-  console.log(tag.props.name)
+const tagClick = (tag: any) => {
   router.push(tag.props.name)
 }
-const tagClose = (tag: TagParams) => {
-  routeStore.deleteTag(tag)
+const tagClose = (tag: string) => {
+  console.log(tags, tags.value)
+  const closeTag = find(tags.value, ['fullPath', tag])
+  routeStore.deleteTag(closeTag)
 }
 </script>
 
