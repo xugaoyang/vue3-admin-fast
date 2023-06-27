@@ -5,6 +5,7 @@ import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { useFullscreen } from '@vueuse/core'
 import { find } from 'lodash-es'
+import type { TagParams } from '#/tag'
 
 const el: HTMLElement | null = document.querySelector(
   '.layout-content-with-tagview',
@@ -14,12 +15,13 @@ const { toggle } = useFullscreen(el)
 const router = useRouter()
 const routeStore = useRouteStore()
 const { tags, currentTag } = storeToRefs(routeStore)
-const tagClick = (tag: any) => {
+const tabClick = (tag: any) => {
   router.push(tag.props.name)
 }
-const tagClose = (tag: string) => {
-  console.log(tags, tags.value)
-  const closeTag = find(tags.value, ['fullPath', tag])
+const tabClose = (fullPath: string) => {
+  const closeTag = JSON.parse(
+    JSON.stringify(find(tags.value, ['fullPath', fullPath])),
+  )
   routeStore.deleteTag(closeTag)
 }
 </script>
@@ -30,8 +32,8 @@ const tagClose = (tag: string) => {
       <el-tabs
         v-model="currentTag.fullPath"
         type="card"
-        @tab-click="tagClick"
-        @tab-remove="tagClose"
+        @tab-click="tabClick"
+        @tab-remove="tabClose"
       >
         <el-tab-pane
           v-for="tag in tags"
