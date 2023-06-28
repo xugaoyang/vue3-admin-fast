@@ -1,0 +1,1 @@
+import{a as o,v as l,o as s,g as t,t as a}from"./vendor-cc5496fe.js";const n={class:"h-full w-full"},f=o({__name:"HelloWorld",setup(r){const e=l("helloworld");return(c,_)=>(s(),t("div",n,a(e.value),1))}});export{f as default};
