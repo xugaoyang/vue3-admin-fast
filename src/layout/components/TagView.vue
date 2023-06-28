@@ -44,6 +44,10 @@ const tabClose = (fullPath: string) => {
         >
         </el-tab-pane>
       </el-tabs>
+      <div class="extend-btns">
+        <el-icon class="cursor-pointer" @click="toggle"><FullScreen /></el-icon>
+        <el-icon class="cursor-pointer"><ArrowDown /></el-icon>
+      </div>
     </div>
   </div>
 </template>
@@ -56,10 +60,18 @@ const tabClose = (fullPath: string) => {
     position: relative;
     width: 100%;
 
-    .el-dropdown {
+    .extend-btns {
       position: absolute;
       top: 8px;
-      right: 13px;
+      right: 0;
+      display: flex;
+
+      .el-icon {
+        width: 30px;
+        height: 30px;
+        line-height: 24px;
+        border-left: 1px solid #ccc;
+      }
     }
 
     :deep(.el-tabs) {
@@ -110,19 +122,6 @@ const tabClose = (fullPath: string) => {
         }
       }
     }
-  }
-}
-
-.extend-btns {
-  position: relative;
-  right: 0;
-  display: flex;
-
-  .el-icon {
-    width: 30px;
-    height: 30px;
-    line-height: 24px;
-    border-left: 1px solid #ccc;
   }
 }
 </style>
