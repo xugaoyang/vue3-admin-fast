@@ -7,7 +7,12 @@ const msg = ref('helloworld')
 <template>
   <div class="h-full w-full">
     {{ msg }}
+    <div class="height-200px bg-red-deep">
+      <span class="button">按钮</span>
+    </div>
   </div>
 </template>
 
-<style scoped></style>
+<style>
+/* @import url('yx-css-demo/src/index.css'); */
+</style>
