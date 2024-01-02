@@ -158,7 +158,7 @@ const routes = [
 const commonRoutes = [
   {
     path: '/',
-    redirect: '/home/welcome',
+    redirect: '/login',
   },
   ...errorRoutes,
 ]

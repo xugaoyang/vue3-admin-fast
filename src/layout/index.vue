@@ -44,7 +44,7 @@ initConfig()
       <el-main class="layout-content-with-tagview"
         ><div class="tag-wrapper"><tag-view /></div>
         <div class="layout-content">
-          <div class="h-full rounded-5px view-shadow">
+          <div class="h-full rounded-5px view-shadow overflow-y-auto">
             <router-view></router-view>
           </div>
         </div>
