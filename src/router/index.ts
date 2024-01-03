@@ -109,6 +109,15 @@ const routes = [
         },
       },
       {
+        path: 'unocss',
+        name: 'unocss',
+        component: () => import('../views/features/UnoCss.vue'),
+        meta: {
+          title: 'unocss',
+          showInMenu: true,
+        },
+      },
+      {
         path: 'mock',
         name: 'mock',
         component: () => import('../views/features/Mock.vue'),
