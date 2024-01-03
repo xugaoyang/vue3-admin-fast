@@ -1,10 +1,10 @@
 import { defineConfig, loadEnv, splitVendorChunkPlugin } from 'vite'
 import { viteMockServe } from 'vite-plugin-mock'
 import vue from '@vitejs/plugin-vue'
-import WindiCSS from 'vite-plugin-windicss'
+// import WindiCSS from 'vite-plugin-windicss'
 import path from 'path'
 import AutoImport from 'unplugin-auto-import/vite'
-// import UnoCSS from 'unocss/vite'
+import UnoCSS from 'unocss/vite'
 
 console.log('vite-plugin', viteMockServe)
 
@@ -50,10 +50,10 @@ export default defineConfig(({ command, mode }) => {
     },
     plugins: [
       vue(),
-      WindiCSS(),
-      // UnoCSS({
-      //   configFile: '../uno.config.ts',
-      // }),
+      // WindiCSS(),
+      UnoCSS({
+        configFile: '../uno.config.ts',
+      }),
       splitVendorChunkPlugin(),
       viteMockServe({
         mockPath: 'mock',

@@ -7,7 +7,7 @@ vue3管理系统基础框架
 3. 语法: `typescript`
 4. 状态管理: `pinia`+`pinia-plugin-persistedstate`
 5. 编译打包: `vite`
-6. 公共样式库: `windicss`
+6. 公共样式库: `windicss`(`unocss`替换中)
 7. 包管理器: `pnpm`
 8. css语法: `dart-sass`即`sass`,不再建议使用`node-sass`
 9. 公共hooks: `vueuse`
