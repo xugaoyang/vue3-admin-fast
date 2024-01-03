@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@element-plus/icons-vue': ^2.0.10
+  '@iconify-json/mdi': ^1.1.64
   '@types/lodash-es': ^4.17.6
   '@types/mockjs': ^1.0.7
   '@types/node': ^18.13.0
@@ -63,6 +64,7 @@ dependencies:
   yx-css-demo: 1.0.1
 
 devDependencies:
+  '@iconify-json/mdi': 1.1.64
   '@types/lodash-es': 4.17.6
   '@types/mockjs': 1.0.7
   '@types/node': 18.13.0
@@ -782,6 +784,12 @@ packages:
 
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
+    dev: true
+
+  /@iconify-json/mdi/1.1.64:
+    resolution: {integrity: sha512-zGeo5TjhNFAY6FmSDBLAzDO811t77r6v/mDi7CAL9w5eXqKez6bIjk8R9AL/RHIeq44ALP4Ozr4lMqFTkHr7ug==}
+    dependencies:
+      '@iconify/types': 2.0.0
     dev: true
 
   /@iconify/types/2.0.0:

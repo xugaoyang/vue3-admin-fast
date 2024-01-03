@@ -37,6 +37,7 @@
     "yx-css-demo": "^1.0.1"
   },
   "devDependencies": {
+    "@iconify-json/mdi": "^1.1.64",
     "@types/lodash-es": "^4.17.6",
     "@types/mockjs": "^1.0.7",
     "@types/node": "^18.13.0",

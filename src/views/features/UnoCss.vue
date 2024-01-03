@@ -1,6 +1,4 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div p-10px>
@@ -29,6 +27,11 @@ import { ref } from 'vue'
     </div>
     <h3 text-20px>图标集成</h3>
     <el-divider />
+    <div class="flex items-center gap-x-4 text-30px p-2">
+      <span class="i-mdi-alarm text-orange-400"></span>
+      <span class="i-mdi:emoticon-poop-outline text-orange-400"></span>
+      <span class="i-mdi:account-cowboy-hat-outline text-green-500"></span>
+    </div>
   </div>
 </template>
 
