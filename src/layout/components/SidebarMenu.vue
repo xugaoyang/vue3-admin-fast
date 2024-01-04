@@ -23,17 +23,11 @@ const { isMenuCollapse, sideColor } = storeToRefs(settingStore)
 const { currentTag } = storeToRefs(routeStore)
 
 const isDark = useDark()
-console.log('侧边栏获取isDark', isDark.value)
 
 const getSideColor = computed(() => {
   return isDark.value ? '' : sideColor.value
 })
-console.log('侧边菜单背景色', getSideColor)
 const router = useRouter()
-
-console.log(router.options)
-
-console.log('路由源数据', routeData)
 
 // 递归循坏路由
 
@@ -67,7 +61,6 @@ const recursionRoutes = (routes: LocalRouteParams[]) => {
 }
 
 const menus = recursionRoutes(routeData)
-console.log('数据处理', menus)
 </script>
 
 <template>

@@ -7,8 +7,8 @@ import { ElMessage } from 'element-plus'
 const router = useRouter()
 const loginFormRef = ref(null)
 const loginForm = reactive({
-  username: '',
-  password: '',
+  username: 'admin',
+  password: '123456',
 })
 
 const rules = reactive({
@@ -57,6 +57,7 @@ const login = (Ele: any) => {
           :prefix-icon="User"
           v-model="loginForm.username"
           placeholder="用户名:admin"
+          clearable
         />
       </el-form-item>
       <el-form-item prop="password">
@@ -65,6 +66,9 @@ const login = (Ele: any) => {
           type="password"
           v-model="loginForm.password"
           placeholder="密码:123456"
+          @keyup.enter="login(loginFormRef)"
+          clearable
+          show-password
         />
       </el-form-item>
       <el-form-item>

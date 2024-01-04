@@ -118,6 +118,15 @@ const routes = [
         },
       },
       {
+        path: 'echarts',
+        name: 'echarts',
+        component: () => import('../views/features/Echarts.vue'),
+        meta: {
+          title: 'echarts',
+          showInMenu: true,
+        },
+      },
+      {
         path: 'mock',
         name: 'mock',
         component: () => import('../views/features/Mock.vue'),

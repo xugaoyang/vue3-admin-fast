@@ -9,7 +9,9 @@ import setting from './Setting.vue'
 import { useDark, useToggle } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import avatarUrl from '@/assets/svg/avatar.svg'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const mainStore = useSystemStore()
 const settingStore = useSettingStore()
 const { isMenuCollapse, naviColor, sideColor, layoutHasSide } =
@@ -83,8 +85,9 @@ const changeMenuCollapse = () => {
         inline-prompt
         :active-icon="Moon"
         :inactive-icon="Sunny"
+        mr-10px
       />
-      <el-dropdown @command="localeChange">
+      <el-dropdown mr-10px @command="localeChange">
         <span>
           <img src="../../assets/i18n.svg" alt="" style="height: 26px" />
         </span>
@@ -95,13 +98,18 @@ const changeMenuCollapse = () => {
           </el-dropdown-menu>
         </template>
       </el-dropdown>
-      <span class="pl-5px flex items-center">
+      <span class="flex items-center">
+        <span
+          class="i-mdi:cog-outline text-24px cursor-pointer mr-10px"
+          @click="openSettingPanel()"
+        ></span>
         <el-avatar class="mr-5px" :size="26" :src="avatarUrl" />
-        admin
+        <span mr-10px>admin</span>
+        <span
+          class="i-mdi:account-arrow-right text-24px cursor-pointer"
+          @click="router.push('/login')"
+        ></span>
       </span>
-      <el-icon class="cursor-pointer pl-5px" @click="openSettingPanel()"
-        ><Setting
-      /></el-icon>
     </div>
     <setting />
   </div>
