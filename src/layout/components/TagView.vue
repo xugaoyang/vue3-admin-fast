@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { FullScreen, ArrowDown } from '@element-plus/icons-vue'
 import { useRouteStore } from '../../store/modules/route'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { useFullscreen } from '@vueuse/core'
-import { find } from 'lodash-es'
+import { find, findIndex, slice } from 'lodash-es'
 import type { TagParams } from '#/tag'
 
 const el: HTMLElement | null = document.querySelector(
@@ -23,6 +22,37 @@ const tabClose = (fullPath: string) => {
     JSON.stringify(find(tags.value, ['fullPath', fullPath])),
   )
   routeStore.deleteTag(closeTag)
+}
+
+/**
+ * @desscription 关闭标签操作
+ * @param type {string} left/right/all/others
+ */
+const tabCloseFn = (type: string) => {
+  const currentIndex = findIndex(tags.value, [
+    'fullPath',
+    currentTag.value.fullPath,
+  ])
+  console.log(currentIndex)
+  let calcTags = null
+  switch (type) {
+    case 'left':
+      calcTags = slice(tags.value, currentIndex, tags.value.length)
+      routeStore.changeTags(calcTags)
+      break
+    case 'right':
+      calcTags = slice(tags.value, 0, currentIndex + 1)
+      routeStore.changeTags(calcTags)
+      break
+    case 'all':
+      routeStore.changeTags([])
+      break
+    case 'others':
+      routeStore.changeTags([currentTag.value])
+      break
+    default:
+      console.log('nothing delete')
+  }
 }
 </script>
 
@@ -44,9 +74,24 @@ const tabClose = (fullPath: string) => {
         >
         </el-tab-pane>
       </el-tabs>
-      <div class="extend-btns">
-        <el-icon class="cursor-pointer" @click="toggle"><FullScreen /></el-icon>
-        <el-icon class="cursor-pointer"><ArrowDown /></el-icon>
+      <div class="extend-btns flex items-center">
+        <span
+          class="i-mdi:fullscreen text-24px pr-5px cursor-pointer"
+          @click="toggle"
+        ></span>
+        <el-dropdown @command="tabCloseFn">
+          <span
+            class="i-mdi:chevron-down text-28px pr-10px cursor-pointer drop-commands"
+          ></span>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item command="others">关闭其他</el-dropdown-item>
+              <el-dropdown-item command="left">关闭左侧 </el-dropdown-item>
+              <el-dropdown-item command="right">关闭右侧</el-dropdown-item>
+              <el-dropdown-item command="all">关闭全部</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
       </div>
     </div>
   </div>
@@ -66,11 +111,8 @@ const tabClose = (fullPath: string) => {
       right: 0;
       display: flex;
 
-      .el-icon {
-        width: 30px;
-        height: 30px;
-        line-height: 24px;
-        border-left: 1px solid #ccc;
+      :hover .drop-commands {
+        color: var(--el-color-primary);
       }
     }
 

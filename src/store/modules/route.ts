@@ -32,6 +32,12 @@ export const useRouteStore = defineStore('routeStore', {
     deleteTag(data: TagParams) {
       this.tags = reject(this.tags, ['fullPath', data.fullPath])
     },
+    deleteAllTag() {
+      this.tags = []
+    },
+    changeTags(data: TagParams[]) {
+      this.tags = data
+    },
     changeCurrentTag(data: TagParams) {
       this.currentTag = data
     },

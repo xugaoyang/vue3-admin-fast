@@ -3,7 +3,6 @@ import { computed } from 'vue'
 import { routes as routeData } from '../../router'
 import { forEach, isEmpty, has, startsWith, reject } from 'lodash-es'
 import sidebarItem from './SidebarItem.vue'
-import { useRouter } from 'vue-router'
 import { useSettingStore } from '../../store/modules/setting'
 import { useRouteStore } from '@/store/modules/route'
 import { storeToRefs } from 'pinia'
@@ -27,7 +26,6 @@ const isDark = useDark()
 const getSideColor = computed(() => {
   return isDark.value ? '' : sideColor.value
 })
-const router = useRouter()
 
 // 递归循坏路由
 
