@@ -106,7 +106,7 @@ const changeMenuCollapse = () => {
         <el-avatar class="mr-5px" :size="26" :src="avatarUrl" />
         <span mr-10px>admin</span>
         <span
-          class="i-mdi:account-arrow-right text-24px cursor-pointer"
+          class="i-mdi:account-arrow-right text-24px cursor-pointer mr-10px"
           @click="router.push('/login')"
         ></span>
       </span>
