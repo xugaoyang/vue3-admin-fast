@@ -6,6 +6,7 @@ import sidebar from './SidebarMenu.vue'
 import { Setting, Sunny, Moon, Fold, Expand } from '@element-plus/icons-vue'
 import appLogo from './AppLogo.vue'
 import setting from './Setting.vue'
+import breadcrumbNav from './BreadCrumbNav.vue'
 import { useDark, useToggle } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import avatarUrl from '@/assets/svg/avatar.svg'
@@ -69,12 +70,7 @@ const changeMenuCollapse = () => {
           @click="changeMenuCollapse()"
           ><Fold v-if="!isMenuCollapse" /> <Expand v-else
         /></el-icon>
-        <el-breadcrumb separator="/" class="pl-10px">
-          <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
-          <el-breadcrumb-item
-            ><a href="/">promotion management</a></el-breadcrumb-item
-          >
-        </el-breadcrumb>
+        <breadcrumbNav />
       </div>
       <sidebar :menuMode="'horizontal'" v-else></sidebar>
     </div>
