@@ -1,7 +1,7 @@
 <template>
   <div p-10px grid grid-cols-3 gap-10px>
     <el-card
-      class="w-500px h-500px"
+      class="h-400px"
       :body-style="{
         padding: '0px',
         width: '100%',
@@ -14,7 +14,7 @@
       <v-chart w-full h-full :option="pieOption" autoresize />
     </el-card>
     <el-card
-      class="w-500px h-500px"
+      class="h-400px"
       :body-style="{
         padding: '0px',
         width: '100%',
@@ -27,7 +27,7 @@
       <v-chart w-full h-full :option="areaOption" autoresize />
     </el-card>
     <el-card
-      class="w-500px h-500px"
+      class="h-400px"
       :body-style="{
         padding: '0px',
         width: '100%',
@@ -40,7 +40,7 @@
       <v-chart w-full h-full :option="barOption" autoresize />
     </el-card>
     <el-card
-      class="w-500px h-500px"
+      class="h-400px"
       :body-style="{
         padding: '0px',
         width: '100%',
@@ -53,7 +53,7 @@
       <v-chart w-full h-full :option="nightingaleOption" autoresize />
     </el-card>
     <el-card
-      class="w-500px h-500px"
+      class="h-400px"
       :body-style="{
         padding: '0px',
         width: '100%',
@@ -66,7 +66,7 @@
       <v-chart w-full h-full :option="scatterOption" autoresize />
     </el-card>
     <el-card
-      class="w-500px h-500px"
+      class="h-400px"
       :body-style="{
         padding: '0px',
         width: '100%',
