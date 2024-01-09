@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useRouteStore } from '../../store/modules/route'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
@@ -15,7 +16,8 @@ const router = useRouter()
 const routeStore = useRouteStore()
 
 const { tags, currentTag } = storeToRefs(routeStore)
-const activeTab = ref(currentTag.value.fullPath)
+
+const activeTab = computed(() => currentTag.value.fullPath)
 const tabClick = (tag: any) => {
   router.push(tag.props.name)
 }
@@ -35,7 +37,6 @@ const tabCloseFn = (type: string) => {
     'fullPath',
     currentTag.value.fullPath,
   ])
-  console.log(currentIndex)
   let calcTags = null
   switch (type) {
     case 'left':
