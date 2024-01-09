@@ -212,7 +212,7 @@ router.afterEach((to, from) => {
     showName: `${to.meta.title as string}` || '404',
   }
   const { tags } = storeToRefs(routeStore)
-  const exist = find(tags.value, { showName: tag.showName })
+  const exist = find(tags.value, { fullPath: tag.fullPath })
   if (!exist) {
     routeStore.addTag(tag)
   }

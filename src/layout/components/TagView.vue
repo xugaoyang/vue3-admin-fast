@@ -13,7 +13,9 @@ const { toggle } = useFullscreen(el)
 
 const router = useRouter()
 const routeStore = useRouteStore()
+
 const { tags, currentTag } = storeToRefs(routeStore)
+const activeTab = ref(currentTag.value.fullPath)
 const tabClick = (tag: any) => {
   router.push(tag.props.name)
 }
@@ -60,7 +62,7 @@ const tabCloseFn = (type: string) => {
   <div class="tabs-box">
     <div class="tabs-menu">
       <el-tabs
-        v-model="currentTag.fullPath"
+        v-model="activeTab"
         type="card"
         @tab-click="tabClick"
         @tab-remove="tabClose"
