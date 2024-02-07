@@ -172,6 +172,23 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/project',
+    name: 'project',
+    meta: { title: '项目相关', showInMenu: true },
+    component: Layout,
+    children: [
+      {
+        path: 'about',
+        name: 'about',
+        component: () => import('../views/about/About.vue'),
+        meta: {
+          title: '技术栈',
+          showInMenu: true,
+        },
+      },
+    ],
+  },
 ]
 const commonRoutes = [
   {
