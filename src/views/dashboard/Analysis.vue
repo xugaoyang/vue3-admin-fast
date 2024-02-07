@@ -28,9 +28,8 @@ turnoverQty.value = 5678
 </script>
 
 <template>
-  <div class="w-full h-full">
+  <div class="w-full h-full p-10px box-border">
     <el-card
-      m-10px
       bg-gradient-to-r
       from-indigo-400
       via-purple-400
@@ -47,7 +46,7 @@ turnoverQty.value = 5678
         >
       </p>
     </el-card>
-    <div flex items-center gap-x-4 m-10px>
+    <div flex items-center gap-x-4 mt-10px>
       <el-card flex-grow :body-style="{ padding: '10px' }">
         <el-statistic :value="visitValue">
           <template #title>
@@ -96,7 +95,7 @@ turnoverQty.value = 5678
       </el-card>
     </div>
 
-    <div flex items-center gap-x-4 m-10px>
+    <div flex items-center gap-x-4 mt-10px>
       <el-card
         flex-grow
         :body-style="{ padding: '10px', height: '230px' }"
