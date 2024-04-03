@@ -1,0 +1,1 @@
+import{a as t,x as o,o as a,g as l,B as n,t as _,f as e}from"./vendor-d57a2320.js";const c={class:"h-full w-full"},r=e("div",{class:"height-200px bg-red-deep"},[e("span",{class:"button"},"按钮")],-1),f=t({__name:"HelloWorld",setup(d){const s=o("helloworld");return(p,i)=>(a(),l("div",c,[n(_(s.value)+" ",1),r]))}});export{f as default};
