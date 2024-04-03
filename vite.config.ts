@@ -9,7 +9,6 @@ import UnoCSS from 'unocss/vite'
 console.log('vite-plugin', viteMockServe)
 
 export default defineConfig(({ command, mode }) => {
-  console.log('node服务日志', command, mode, process.env)
   const env = loadEnv(mode, process.cwd(), '')
   console.log(env)
   return {
